@@ -109,6 +109,29 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 .fuss{margin-top:auto;text-align:center;font-size:12px;color:var(--c-leise);padding:18px 20px 6px}
 .fuss u{text-underline-offset:2px}
 .bild audio{width:100%;height:40px}
+/* Aufnahme, Abspielknopf und Hintergründe für Magnete ohne Foto (flache Farben, zwei ruhige Kreise) */
+.aufn{display:flex;align-items:center;gap:12px;padding:12px;border-radius:16px;background:var(--c-flaeche)}
+.aufn .rund{all:unset;cursor:pointer;flex:none;width:52px;height:52px;border-radius:50%;background:var(--c-akzent);color:#fff;display:flex;align-items:center;justify-content:center}
+.aufn .rund.laeuft{background:#b3261e}
+.aufn b{display:block;font-size:15px}.aufn small{font-size:13px;color:var(--c-leise)}
+.oder{text-align:center;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c-leise)}
+.hgwahl{display:flex;gap:8px;flex-wrap:wrap}
+.hgwahl button{all:unset;cursor:pointer;width:38px;height:38px;border-radius:10px;border:2px solid transparent;box-sizing:border-box}
+.hgwahl button[aria-pressed="true"]{border-color:var(--c-text)}
+.hg{position:relative;overflow:hidden}
+.hg::before,.hg::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14)}
+.hg::before{width:70%;aspect-ratio:1;left:-22%;top:-18%}.hg::after{width:52%;aspect-ratio:1;right:-14%;bottom:-12%}
+.hg.hg-terra,.hgwahl .hg-terra,.buehne .bildflaeche.hg-terra{background:#9e5444}.hg.hg-creme,.hgwahl .hg-creme,.buehne .bildflaeche.hg-creme{background:#ecd9cd}.hg.hg-tanne,.hgwahl .hg-tanne,.buehne .bildflaeche.hg-tanne{background:#2f4a3c}.hg.hg-nacht,.hgwahl .hg-nacht,.buehne .bildflaeche.hg-nacht{background:#27324a}.hg.hg-rose,.hgwahl .hg-rose,.buehne .bildflaeche.hg-rose{background:#e3ad9d}.hg.hg-sand,.hgwahl .hg-sand,.buehne .bildflaeche.hg-sand{background:#cdb994}
+.hg-creme::before,.hg-creme::after,.hg-sand::before,.hg-sand::after{background:rgba(255,255,255,.4)}
+.tipp{all:unset;cursor:pointer;position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;z-index:2;text-align:center}
+.hg-creme .tipp,.hg-sand .tipp,.hg-rose .tipp{color:#2e1a14}
+.tipp .kreis{width:92px;height:92px;border-radius:50%;background:rgba(255,255,255,.94);color:#9e5444;display:flex;align-items:center;justify-content:center}
+.tipp .kreis svg{width:40px;height:40px}
+.tipp b{font-size:19px;font-weight:800;letter-spacing:-.01em}.tipp small{font-size:14px;opacity:.85}
+.hoeren{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 14px 10px 10px;border-radius:16px;background:var(--c-akzent);color:#fff;width:100%}
+.hoeren .kreis{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;color:#9e5444;display:flex;align-items:center;justify-content:center}
+.hoeren .kreis svg{width:20px;height:20px}.hoeren b{font-size:15px}.hoeren small{display:block;font-size:12.5px;opacity:.85}
+.tipp:focus-visible,.hoeren:focus-visible,.aufn .rund:focus-visible,.hgwahl button:focus-visible{outline:3px solid #2e1a14;outline-offset:2px}
 /* Ansicht nur mit dem Handy (#s1, #s2, #s3): dient dem Erzeugen der Bilder für das PDF */
 .nur-handy main>:not([aria-label="Prototyp"]){display:none}
 .nur-handy [aria-label="Prototyp"]>.kopf,.nur-handy .wahl{display:none}
@@ -144,7 +167,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   </section>
 
   <section style="display:flex;flex-direction:column;gap:18px" aria-label="Prototyp">
-    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an, auf „Sommer am Meer“ für die Ansicht beim Scannen, und probiere im Handy (flach, ruhig und modern, nicht so verspielt wie die Wichtel): Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos, eine Audiodatei und einen Link einsetzen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
+    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an, auf „Sommer am Meer“ für die Ansicht beim Scannen, und probiere im Handy (flach, ruhig und modern, nicht so verspielt wie die Wichtel): Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos einsetzen, einen Gruß direkt aufnehmen oder eine Audiodatei wählen und einen Link eintragen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
     <div class="proto">
       <div class="wahl nicht-druck" role="group" aria-label="Bildschirm wählen">
         <button type="button" data-s="1" aria-pressed="true"><b>1 · Meine Magnete</b><span>Was der Kunde im Portal sieht</span></button>
@@ -160,11 +183,11 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
           <!-- 1: Meine Magnete -->
           <div class="screen inhalt" data-screen="1">
             <div class="kopfzeile"><div class="marke"><img src="img/logo.png" alt="">taggylove</div></div>
-            <div><h4 style="font-size:30px">Hallo Anna</h4><p class="klein" style="font-size:15px;margin-top:4px">Deine Magnete. Tippe einen an, um Fotos, Audio oder einen Link dahinter zu legen.</p></div>
+            <div><h4 style="font-size:30px">Hallo Anna</h4><p class="klein" style="font-size:15px;margin-top:4px">Deine Magnete. Tippe einen an, um Fotos, eine Aufnahme oder einen Link dahinter zu legen.</p></div>
             <div><div class="abschnitt" style="margin-bottom:10px">NFC Magnete · 3er Set</div>
             <div class="liste">
-              <button class="zeile" type="button" data-gehe="3" data-magnet="1"><span class="daum" style="background-image:url(img/ostsee-2.jpg)"></span><span><b>Sommer am Meer</b><small><span class="punkt"></span>Verbunden · 3 Fotos · Link</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
-              <button class="zeile" type="button" data-gehe="3" data-magnet="2"><span class="daum" style="background-image:url(img/josie.jpg)"></span><span><b>Josie am Strand</b><small><span class="punkt"></span>Verbunden · 1 Foto</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
+              <button class="zeile" type="button" data-gehe="3" data-magnet="1"><span class="daum" style="background-image:url(img/ostsee-2.jpg)"></span><span><b>Sommer am Meer</b><small><span class="punkt"></span>Verbunden · 4 Fotos · Link</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
+              <button class="zeile" type="button" data-gehe="3" data-magnet="2"><span class="daum hg hg-tanne" style="color:#fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span><b>Gruß von Oma und Opa</b><small><span class="punkt"></span>Verbunden · Aufnahme</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
               <button class="zeile" type="button" data-gehe="2" data-magnet="3"><span class="daum leer" id="m3k"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><span><b id="m3t">Magnet 3</b><small id="m3s"><span class="punkt aus"></span>Noch leer</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
             </div></div>
             <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
@@ -191,13 +214,20 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
               <div class="mass"><div class="bar"><i id="balken" style="width:0"></i></div><p class="klein" id="fotoZahl"></p></div>
             </div>
             <div data-panel="audio" hidden style="display:flex;flex-direction:column;gap:12px">
-              <label class="ablage" for="audioWahl"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><b id="audioName">Audiodatei auswählen</b><span>Sprachmemo oder Musik, bis 26 MB. Wir wandeln sie in MP3 um.</span></label>
+              <div class="aufn"><button class="rund" type="button" id="aufnKnopf" aria-label="Aufnahme starten"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+                <span><b id="aufnTitel">Jetzt aufnehmen</b><small id="aufnText">Antippen und sprechen, zum Beispiel einen Gruß. Bis 3 Minuten.</small></span></div>
+              <div class="oder">oder</div>
+              <label class="ablage" for="audioWahl" style="padding:16px"><b id="audioName">Audiodatei auswählen</b><span>Sprachmemo oder Musik, bis 26 MB.</span></label>
               <input type="file" id="audioWahl" accept="audio/*" hidden>
               <audio id="audioVor" controls hidden></audio>
+              <button class="hbtn neben" type="button" id="audioWeg" hidden style="min-height:40px;font-size:14px">Aufnahme entfernen</button>
+              <div><div class="abschnitt" style="margin-bottom:8px">Hintergrund, wenn kein Foto dabei ist</div>
+                <div class="hgwahl" id="hgwahl" role="group" aria-label="Hintergrund wählen"></div></div>
             </div>
             <div data-panel="link" hidden style="display:flex;flex-direction:column;gap:10px">
               <label class="f" for="ml">Adresse<input class="t" id="ml" placeholder="https://…" inputmode="url" autocapitalize="off" autocomplete="off"></label>
-              <p class="klein" id="linkHinweis">Nur Adressen mit https. Wer scannt, sieht erst eine Zwischenseite und öffnet den Link bewusst.</p>
+              <label class="f" for="mlt">Beschriftung<input class="t" id="mlt" placeholder="z. B. Alle Fotos im Album" maxlength="40"></label>
+              <p class="klein" id="linkHinweis">Wer scannt, sieht den Link als Kachel unter dem Foto und öffnet ihn über eine Zwischenseite.</p>
             </div>
             <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
               <button class="hbtn haupt" type="button" data-gehe="3">Vorschau ansehen</button>
@@ -211,6 +241,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
               <div class="kopfzeile"><div class="marke"><img src="img/logo.png" alt="">taggylove</div></div>
               <div class="buehne" id="buehne">
                 <div class="bildflaeche" id="gross" role="img" aria-label="Foto"></div>
+                <button class="tipp" type="button" id="tipp" hidden><span class="kreis"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><b id="tippText">Tipp mich an</b><small id="tippZeit"></small></button>
                 <span class="zaehler" id="zaehler"></span>
                 <button class="pfeil l" type="button" id="zurueck" aria-label="Vorheriges Foto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
                 <button class="pfeil r" type="button" id="vor" aria-label="Nächstes Foto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
@@ -218,7 +249,8 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
               <div class="streifen" id="punkte" aria-hidden="true"></div>
               <div class="text"><h4 id="scanTitel"></h4><p class="unter" id="unterzeile"></p></div>
               <div class="aktionen">
-                <audio id="scanAudio" controls hidden></audio>
+                <audio id="scanAudio" preload="metadata" hidden></audio>
+                <button class="hoeren" type="button" id="hoeren" hidden><span class="kreis"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span><b id="hoerenText">Aufnahme anhören</b><small id="hoerenZeit"></small></span></button>
                 <button class="zeile" type="button" id="zeigeLink" hidden style="border:1.5px solid var(--c-linie)"><span class="daum" style="width:44px;height:44px;background:var(--c-weich)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span><b id="linkTitel">Mehr ansehen</b><small id="linkSub"></small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
               </div>
               <p class="fuss">Gemacht mit taggylove · <u>Inhalt melden</u></p>
@@ -282,13 +314,15 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   var $=function(i){return document.getElementById(i)};
   var schirme=document.querySelectorAll('.screen'),wahl=document.querySelectorAll('.wahl button');
   var MAG={1:{titel:'Sommer am Meer',text:'Sand, Wind und Eis. Die schönsten Tage in einem Magneten.',link:'https://example.com/album',linkTitel:'Alle Fotos im Album',
-      fotos:['img/ostsee-2.jpg','img/ostsee-1.jpg','img/strand-abend.jpg']},
-    2:{titel:'Josie am Strand',text:'Josie ist am liebsten im Wasser. Hier ist sie wieder nass.',link:'',fotos:['img/josie.jpg']}};
-  var st={fotos:[],audio:null,link:''},idx=0,aktuell=3;
+      fotos:['img/ostsee-2.jpg','img/ostsee-1.jpg','img/strand-abend.jpg','img/josie.jpg']},
+    2:{titel:'Gruß von Oma und Opa',text:'Ein kleiner Gruß zum Anhören.',link:'',fotos:[],audio:{url:'img/gruss.m4a'},hg:'tanne'}};
+  var st={fotos:[],audio:null,link:'',hg:'terra'},idx=0,aktuell=3;
+  var HG=['terra','creme','tanne','nacht','rose','sand'];
+  function eigenes(){return !!($('mt').value.trim()||$('mu').value.trim()||st.fotos.length||st.audio||st.link)}
   var ICON_PLUS='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
   function host(u){try{var x=new URL(u);return x.protocol==='https:'?x.hostname:''}catch(e){return ''}}
-  function geh(n){if(String(n)==='2')aktuell=3;schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();if(String(n)==='1')baueListe();if(String(n)==='2')zeichneFotos()}
-  wahl.forEach(function(b){b.addEventListener('click',function(){var n=b.getAttribute('data-s');geh(n);if(n==='3'){aktuell=1;baueScan()}})});
+  function geh(n){$('scanAudio').pause();if(String(n)==='2')aktuell=3;schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();if(String(n)==='1')baueListe();if(String(n)==='2')zeichneFotos()}
+  wahl.forEach(function(b){b.addEventListener('click',function(){var n=b.getAttribute('data-s');geh(n);if(n==='3'){aktuell=eigenes()?3:1;baueScan()}})});
   document.querySelectorAll('[data-gehe]').forEach(function(b){b.addEventListener('click',function(){var m=b.getAttribute('data-magnet');geh(b.getAttribute('data-gehe'));if(m&&b.getAttribute('data-gehe')==='3'){aktuell=+m;baueScan()}})});
   var reiter=document.querySelectorAll('.seg button:not([disabled])'),paneele=document.querySelectorAll('[data-panel]');
   function reiterZeigen(r){reiter.forEach(function(x){x.setAttribute('aria-selected',x.getAttribute('data-r')===r?'true':'false')});paneele.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==r})}
@@ -304,35 +338,66 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
     $('fotoZahl').textContent=n+' von 12 Fotos · etwa '+mb+' MB von 50 MB'}
   $('fotoWahl').addEventListener('change',function(e){var dateien=Array.prototype.slice.call(e.target.files).filter(function(f){return /^image\//.test(f.type)}).slice(0,12-st.fotos.length);
     Promise.all(dateien.map(verkleinern)).then(function(a){a.forEach(function(u){if(u)st.fotos.push(u)});zeichneFotos();e.target.value=''})});
-  $('audioWahl').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio={url:URL.createObjectURL(f),name:f.name};$('audioName').textContent=f.name;var a=$('audioVor');a.src=st.audio.url;a.hidden=false});
-  $('ml').addEventListener('input',function(e){var v=e.target.value.trim();st.link=host(v)?v:'';$('linkHinweis').textContent=!v?'Nur Adressen mit https. Wer scannt, sieht erst eine Zwischenseite und öffnet den Link bewusst.':(host(v)?'Gültig. Beim Scannen erscheint zuerst die Zwischenseite für '+host(v)+'.':'Das ist keine Adresse mit https und würde so nicht angenommen.')});
+  function tonSetzen(blob,name){if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio=blob?{url:URL.createObjectURL(blob),name:name}:null;
+    var a=$('audioVor');if(st.audio){a.src=st.audio.url;a.hidden=false}else{a.hidden=true;a.removeAttribute('src')}$('audioWeg').hidden=!st.audio;
+    $('audioName').textContent=st.audio&&name!=='Aufnahme'?name:'Audiodatei auswählen'}
+  $('audioWahl').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;tonSetzen(f,f.name);e.target.value=''});
+  $('audioWeg').addEventListener('click',function(){tonSetzen(null);$('aufnTitel').textContent='Jetzt aufnehmen';$('aufnText').textContent='Antippen und sprechen, zum Beispiel einen Gruß. Bis 3 Minuten.'});
+  /* Aufnahme direkt im Browser (im echten Portal dieselbe Technik wie bei den eigenen Wichtel-Ansagen) */
+  var rec=null,teile=[],uhr=null,sek=0,strom=null;
+  function zeit(s){s=Math.round(s);return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
+  function aufnEnde(){clearInterval(uhr);$('aufnKnopf').classList.remove('laeuft');$('aufnKnopf').setAttribute('aria-label','Aufnahme starten');if(strom)strom.getTracks().forEach(function(t){t.stop()});strom=null}
+  $('aufnKnopf').addEventListener('click',function(){
+    if(rec&&rec.state==='recording'){rec.stop();return}
+    if(!navigator.mediaDevices||!window.MediaRecorder){$('aufnText').textContent='Dieser Browser kann hier nicht aufnehmen. Nimm bitte eine Audiodatei.';return}
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){strom=s;teile=[];rec=new MediaRecorder(s);
+      rec.ondataavailable=function(e){if(e.data.size)teile.push(e.data)};
+      rec.onstop=function(){aufnEnde();tonSetzen(new Blob(teile,{type:rec.mimeType||'audio/webm'}),'Aufnahme');$('aufnTitel').textContent='Aufnahme gespeichert ('+zeit(sek)+')';$('aufnText').textContent='Unten kannst du sie anhören. Antippen nimmt neu auf.'};
+      rec.start();sek=0;$('aufnKnopf').classList.add('laeuft');$('aufnKnopf').setAttribute('aria-label','Aufnahme beenden');$('aufnTitel').textContent='Aufnahme läuft … 0:00';$('aufnText').textContent='Zum Beenden noch einmal antippen.';
+      uhr=setInterval(function(){sek++;$('aufnTitel').textContent='Aufnahme läuft … '+zeit(sek);if(sek>=180)rec.stop()},1000)
+    }).catch(function(){$('aufnText').textContent='Ohne Mikrofon-Freigabe geht die Aufnahme nicht. Erlaube das Mikrofon oder nimm eine Audiodatei.'})});
+  /* Hintergrund für Magnete ohne Foto */
+  HG.forEach(function(h){var b=document.createElement('button');b.type='button';b.className='hg-'+h;b.setAttribute('aria-label','Hintergrund '+h);b.setAttribute('aria-pressed',h===st.hg?'true':'false');
+    b.onclick=function(){st.hg=h;[].forEach.call($('hgwahl').children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})};$('hgwahl').appendChild(b)});
+  $('ml').addEventListener('input',function(e){var v=e.target.value.trim();if(v&&!/^[a-z]+:\/\//i.test(v))v='https://'+v;v=v.replace(/^http:\/\//i,'https://');
+    st.link=host(v)&&/\./.test(host(v))?v:'';$('linkHinweis').textContent=!e.target.value.trim()?'Wer scannt, sieht den Link als Kachel unter dem Foto und öffnet ihn über eine Zwischenseite.':(st.link?'Passt. In der Vorschau erscheint die Kachel unter dem Foto, ein Tipp zeigt die Zwischenseite für '+host(v)+'.':'Das sieht noch nicht nach einer Internetadresse aus.')});
 
-  function daten(){if(aktuell!==3)return MAG[aktuell];return {titel:$('mt').value.trim()||'Dein Titel',text:$('mu').value.trim()||'Hier erscheint dein Text.',fotos:st.fotos,link:st.link,linkTitel:'Mehr ansehen',audio:st.audio}}
+  function daten(){if(aktuell!==3)return MAG[aktuell];return {titel:$('mt').value.trim()||'Dein Titel',text:$('mu').value.trim()||'Hier erscheint dein Text.',fotos:st.fotos,link:st.link,linkTitel:$('mlt').value.trim()||'Mehr ansehen',audio:st.audio,hg:st.hg}}
   function baueListe(){var t=$('mt').value.trim(),n=st.fotos.length,teile=[];
     $('m3t').textContent='Magnet 3';
     $('m3s').innerHTML='<span class="punkt aus"></span>Noch leer';
     var k=$('m3k');k.className='daum leer';k.style.backgroundImage='';k.innerHTML=ICON_PLUS;
-    if(t||$('mu').value.trim()){ /* eigene Eingabe: Magnet 3 trägt den neuen Titel */
-      $('m3t').textContent=t||'Magnet 3';if(n)teile.push(n+(n===1?' Foto':' Fotos'));if(st.audio)teile.push('Audio');if(st.link)teile.push('Link');
+    if(eigenes()){ /* eigene Eingabe: Magnet 3 trägt den neuen Titel */
+      $('m3t').textContent=t||'Magnet 3';if(n)teile.push(n+(n===1?' Foto':' Fotos'));if(st.audio)teile.push('Aufnahme');if(st.link)teile.push('Link');
       $('m3s').innerHTML='<span class="punkt"></span>Verbunden'+(teile.length?' · '+teile.join(' · '):'');
-      if(n){k.className='daum';k.innerHTML='';k.style.backgroundImage='url("'+st.fotos[0]+'")'}}}
+      if(n){k.className='daum';k.innerHTML='';k.style.backgroundImage='url("'+st.fotos[0]+'")'}else if(st.audio){k.className='daum hg hg-'+st.hg;k.style.color='#fff';k.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>'}}}
   function bildzeigen(){var F=daten().fotos,n=F.length;
-    if(!n){$('gross').style.backgroundImage='';$('gross').classList.add('leerbild');$('zaehler').hidden=true;$('punkte').innerHTML='';$('vor').hidden=$('zurueck').hidden=true;return}
-    $('gross').classList.remove('leerbild');idx=(idx+n)%n;$('gross').style.backgroundImage='url("'+F[idx]+'")';
+    var g=$('gross'),d=daten();g.className='bildflaeche';
+    if(!n){g.style.backgroundImage='';if(d.audio||d.link)g.classList.add('hg','hg-'+(d.hg||'terra'));else g.classList.add('leerbild');$('zaehler').hidden=true;$('punkte').innerHTML='';$('vor').hidden=$('zurueck').hidden=true;return}
+    idx=(idx+n)%n;$('gross').style.backgroundImage='url("'+F[idx]+'")';
     $('zaehler').hidden=n<2;$('zaehler').textContent=(idx+1)+' / '+n;
     var p=$('punkte');p.innerHTML='';if(n>1)for(var k=0;k<n;k++){var i=document.createElement('i');if(k===idx)i.className='an';p.appendChild(i)}
     $('vor').hidden=$('zurueck').hidden=n<2}
   function baueScan(){var d=daten();idx=0;$('scanTitel').textContent=d.titel;$('unterzeile').textContent=d.text;bildzeigen();
-    var a=$('scanAudio');if(d.audio){a.src=d.audio.url;a.hidden=false}else{a.hidden=true;a.removeAttribute('src')}
+    var a=$('scanAudio');a.pause();if(d.audio){a.src=d.audio.url}else{a.removeAttribute('src')}
+    var nurTon=d.audio&&!d.fotos.length;$('tipp').hidden=!nurTon;$('hoeren').hidden=!d.audio||nurTon;tonAnzeige();
     var b=$('zeigeLink');if(d.link){b.hidden=false;$('linkTitel').textContent=d.linkTitel;$('linkSub').textContent=host(d.link);$('linkHost').textContent=host(d.link);$('linkGo').href=d.link}else{b.hidden=true}
     $('scanFoto').hidden=false;$('zwischen').hidden=true}
+  var PLAY='<path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/>',PAUSE='<path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/>';
+  function tonAnzeige(){var a=$('scanAudio'),an=!a.paused&&!a.ended,rest=isFinite(a.duration)?' · noch '+zeit(Math.max(0,a.duration-a.currentTime)):'';
+    [$('tipp'),$('hoeren')].forEach(function(k){k.querySelector('svg').innerHTML=an?PAUSE:PLAY});
+    $('tippText').textContent=an?'Hör gut zu …':(a.ended?'Nochmal hören?':'Tipp mich an');$('tippZeit').textContent=an?rest.replace(' · ',''):'';
+    $('hoerenText').textContent=an?'Läuft …':(a.ended?'Nochmal anhören':'Aufnahme anhören');$('hoerenZeit').textContent=an?rest.replace(' · ',''):'Antippen zum Abspielen'}
+  function tonUmschalten(){var a=$('scanAudio');if(a.paused||a.ended){if(a.ended)a.currentTime=0;a.play()}else a.pause()}
+  $('tipp').addEventListener('click',tonUmschalten);$('hoeren').addEventListener('click',tonUmschalten);
+  ['play','pause','ended','timeupdate','loadedmetadata'].forEach(function(e){$('scanAudio').addEventListener(e,tonAnzeige)});
   $('vor').addEventListener('click',function(){idx++;bildzeigen()});
   $('zurueck').addEventListener('click',function(){idx--;bildzeigen()});
   var x0=null;$('buehne').addEventListener('pointerdown',function(e){x0=e.clientX});
   $('buehne').addEventListener('pointerup',function(e){if(x0===null)return;var d=e.clientX-x0;x0=null;if(Math.abs(d)>40){idx+=d<0?1:-1;bildzeigen()}});
   $('zeigeLink').addEventListener('click',function(){$('scanFoto').hidden=true;$('zwischen').hidden=false});
   $('zurSeite').addEventListener('click',function(){$('zwischen').hidden=true;$('scanFoto').hidden=false});
-  $('reset').addEventListener('click',function(){if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio=null;st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('audioVor').hidden=true;$('audioVor').removeAttribute('src');$('audioName').textContent='Audiodatei auswählen';zeichneFotos();baueListe();geh(1)});
+  $('reset').addEventListener('click',function(){tonSetzen(null);st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('mlt').value='';$('aufnTitel').textContent='Jetzt aufnehmen';zeichneFotos();baueListe();geh(1)});
   var hh=location.hash.match(/^#s([123])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1]);if(hh[1]==='3'){aktuell=1;baueScan()}}else{geh(1)}
 })();
 </script>
