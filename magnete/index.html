@@ -79,6 +79,32 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
 .scan h4{font-family:var(--serif);font-size:24px;margin:0;font-weight:600}
 .zwischen{background:#fffdfb;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px;text-align:center}
 .druck-nur{display:none}
+
+/* ---- Handy-Bildschirme: modern und clean (Sina, 13.11.): helle Fläche, nur Nunito Sans, viel Luft, Foto im Mittelpunkt.
+   Nur die Terrakotta-Farbe bleibt als Erkennungszeichen von taggylove. Die Wichtel-Verspieltheit gibt es hier nicht. ---- */
+.bild{background:#fff;--bg:#fff;--karte:#fff;--linie:#ebe7e4;--weich:#f6f3f1;color:#1f1a18;--text:#1f1a18;--leise:#77706c}
+.bild h4,.bild .scan h4{font-family:var(--sans)!important;font-weight:800!important;letter-spacing:-.01em;color:#1f1a18}
+.bild .inhalt{padding:8px 20px 24px;gap:16px;color:#1f1a18}
+.bild .leiste{color:#77706c}
+.bild p,.bild .hkarte,.bild .zwischen{color:#1f1a18}
+.bild p[style*="6e5047"],.bild small,.bild .kleine,.bild label.f{color:#77706c!important}
+.bild .hkarte{background:#fff;border:1px solid #ebe7e4;box-shadow:none;border-radius:16px;padding:16px;gap:12px}
+.bild .hkarte h4{font-size:17px!important}
+.bild .magnet{background:#f6f3f1;border-radius:12px}
+.bild .magnet .k{border-radius:10px}
+.bild .hbtn{border-radius:12px;min-height:50px;font-weight:700;font-size:15px}
+.bild .hbtn.haupt{background:#9e5444;box-shadow:none}
+.bild .hbtn.neben{background:#fff;border:1px solid #ddd6d2;color:#1f1a18}
+.bild input.t,.bild textarea.t{border:1px solid #ddd6d2;border-radius:12px;background:#fff;color:#1f1a18}
+.bild .reiter{background:#f6f3f1;border-radius:12px}.bild .reiter button{border-radius:9px;color:#77706c}
+.bild .reiter button[aria-selected="true"]{background:#fff;color:#1f1a18;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.bild .ablage{border:1.5px dashed #d8d0cb;border-radius:12px;color:#77706c;background:#faf8f7}
+.bild .foto{border-radius:10px}
+.bild .scan .gross{border-radius:16px;aspect-ratio:1/1}
+.bild .pfeil{background:#fff;border:1px solid #ddd6d2;color:#1f1a18}
+.bild .punkte i{background:#d8d0cb}.bild .punkte i.an{background:#1f1a18}
+.bild .zwischen{background:#faf8f7;border:1px solid #ebe7e4;border-radius:16px}
+.bild .pill{background:#e9f3ea;color:#24502d}
 /* Ansicht nur mit dem Handy (#s1, #s2, #s3): dient dem Erzeugen der Bilder für das PDF */
 .nur-handy main>:not([aria-label="Prototyp"]){display:none}
 .nur-handy [aria-label="Prototyp"]>.kopf,.nur-handy .wahl{display:none}
@@ -114,7 +140,7 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
   </section>
 
   <section style="display:flex;flex-direction:column;gap:18px" aria-label="Prototyp">
-    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an und probiere im Handy: Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos, eine Audiodatei und einen Link einsetzen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
+    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an und probiere im Handy (bewusst modern und ruhig gehalten, nicht so verspielt wie die Wichtel): Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos, eine Audiodatei und einen Link einsetzen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
     <div class="proto">
       <div class="wahl nicht-druck" role="group" aria-label="Bildschirm wählen">
         <button type="button" data-s="1" aria-pressed="true"><b>1 · Meine Magnete</b><span>Was der Kunde im Portal sieht</span></button>
