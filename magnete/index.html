@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Magnete im Portal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+/* Layout: eine ruhige Lesespalte mit Plan und, mittendrin, ein bedienbares Handy mit den drei Bildschirmen. Farben und Schriften
+   sind die von taggylove (Terrakotta, Cremeweiß, Playfair), damit Sina sofort ihr Portal erkennt. */
+:root{--bg:#f7f2ee;--karte:#fffdfb;--text:#44241a;--leise:#6e5047;--akzent:#9e5444;--akzent2:#874536;--weich:#fbe9e3;--linie:#ecdcd3;--ok:#24502d;--okbg:#e9f3ea;--hinweis:#8a2c1b;--hinweisbg:#fbe4df;--schatten:rgba(68,36,26,.10);
+  --serif:'Playfair Display',Georgia,serif;--sans:'Nunito Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1411;--karte:#2a1d18;--text:#f3e6e0;--leise:#c2a79d;--akzent:#e08e7a;--akzent2:#f0a794;--weich:#3a2620;--linie:#4a342c;--ok:#9fd3a8;--okbg:#22372a;--hinweis:#ffb4a3;--hinweisbg:#4a2620;--schatten:rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1e1411;--karte:#2a1d18;--text:#f3e6e0;--leise:#c2a79d;--akzent:#e08e7a;--akzent2:#f0a794;--weich:#3a2620;--linie:#4a342c;--ok:#9fd3a8;--okbg:#22372a;--hinweis:#ffb4a3;--hinweisbg:#4a2620;--schatten:rgba(0,0,0,.4);color-scheme:dark}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,5vw,46px)}h2{font-size:clamp(23px,3.4vw,30px)}h3{font-size:19px}
+p{margin:0}ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.kopf{display:flex;flex-direction:column;gap:12px;max-width:720px}
+.vorab{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent)}
+.leise{color:var(--leise)}
+.zwei{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.drei{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.zwei,.drei{grid-template-columns:minmax(0,1fr)}}
+.karte{background:var(--karte);border:1px solid var(--linie);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.karte.weich{background:var(--weich);border-color:transparent}
+.schritt{display:flex;gap:12px;align-items:flex-start}
+.schritt b.n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--akzent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px}
+.zahl{font-family:var(--serif);font-size:30px;line-height:1;color:var(--akzent)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--linie);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leise)}
+.tab-wrap{overflow-x:auto}
+.hinweis{background:var(--hinweisbg);color:var(--hinweis);border-radius:14px;padding:14px 16px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok);border-radius:14px;padding:14px 16px;font-weight:600}
+
+/* ---- Prototyp: Handy mit drei Bildschirmen ---- */
+.proto{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:760px){.proto{grid-template-columns:minmax(0,1fr)}}
+.wahl{display:flex;flex-direction:column;gap:10px}
+.wahl button{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1.5px solid var(--linie);border-radius:16px;background:var(--karte)}
+.wahl button b{font-size:16px}.wahl button span{font-size:14px;color:var(--leise)}
+.wahl button[aria-pressed="true"]{border-color:var(--akzent);background:var(--weich)}
+.wahl button:focus-visible,.hbtn:focus-visible,.reiter button:focus-visible,.pfeil:focus-visible{outline:3px solid var(--akzent);outline-offset:2px}
+.handy{width:100%;max-width:390px;margin:0 auto;background:#1b1210;border-radius:42px;padding:12px;box-shadow:0 18px 50px var(--schatten)}
+.bild{background:var(--bg);border-radius:32px;min-height:700px;overflow:hidden;position:relative;display:flex;flex-direction:column;color:#44241a;--text:#44241a;--leise:#6e5047;--akzent:#9e5444;--weich:#fbe9e3;--linie:#ecdcd3;--karte:#fffdfb;--bg:#f7f2ee}
+.bild .leiste{display:flex;justify-content:space-between;padding:12px 22px 4px;font-size:12px;font-weight:800;color:#6e5047}
+.bild .inhalt{padding:10px 18px 22px;display:flex;flex-direction:column;gap:14px;flex:1;color:#44241a}
+.screen[hidden]{display:none}
+.hbtn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:999px;font-weight:800;font-size:16px;text-align:center}
+.hbtn.haupt{background:#9e5444;color:#fff;box-shadow:0 6px 16px rgba(158,84,68,.28)}
+.hbtn.neben{background:#fffdfb;color:#44241a;border:1.5px solid #ecdcd3}
+.hkarte{background:#fffdfb;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(68,36,26,.07);display:flex;flex-direction:column;gap:10px;color:#44241a}
+.hkarte h4{margin:0;font-family:var(--serif);font-size:19px;font-weight:600}
+.magnet{display:flex;gap:12px;align-items:center;padding:10px;border-radius:14px;background:#f7f2ee}
+.magnet .k{flex:none;width:54px;height:54px;border-radius:12px;overflow:hidden}
+.magnet b{display:block;font-size:15px}.magnet small{display:block;font-size:13px;color:#6e5047}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:#e9f3ea;color:#24502d}.pill.leer{background:#fbe9e3;color:#874536}
+.foto{border-radius:12px;position:relative;overflow:hidden}
+.f1{background:linear-gradient(160deg,#f6c7a8 0%,#e8907a 48%,#7a6a9e 100%)}
+.f2{background:linear-gradient(170deg,#bcdcf0 0%,#7fb3d6 55%,#e9d9b5 56%,#d9c08f 100%)}
+.f3{background:linear-gradient(150deg,#cfe6c4 0%,#8fc08a 60%,#5d8a5a 100%)}
+.f4{background:linear-gradient(160deg,#fbe0e6 0%,#f0a5b8 60%,#c76c8a 100%)}
+.foto svg{position:absolute;inset:0;width:100%;height:100%}
+label.f{font-size:13px;font-weight:800;color:#6e5047;display:flex;flex-direction:column;gap:4px}
+input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px solid #ecdcd3;border-radius:12px;background:#fffdfb;color:#44241a;width:100%}
+.reiter{display:flex;gap:6px;background:#f1e6e0;border-radius:999px;padding:4px}
+.reiter button{all:unset;cursor:pointer;flex:1;text-align:center;font-weight:800;font-size:14px;padding:8px 0;border-radius:999px;color:#6e5047}
+.reiter button[aria-selected="true"]{background:#fffdfb;color:#9e5444;box-shadow:0 2px 6px rgba(68,36,26,.1)}
+.ablage{border:2px dashed #e3c9bd;border-radius:14px;padding:16px;text-align:center;font-size:14px;color:#6e5047;display:flex;flex-direction:column;gap:6px;align-items:center}
+.wellen{display:flex;gap:3px;align-items:center;height:40px}.wellen i{display:block;width:4px;background:#9e5444;border-radius:2px}
+.kleine{font-size:12px;color:#6e5047}
+.scan{display:flex;flex-direction:column;gap:12px}
+.scan .gross{aspect-ratio:4/5;border-radius:22px}
+.pfeile{display:flex;justify-content:space-between;align-items:center}
+.pfeil{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;background:#fffdfb;border:1.5px solid #ecdcd3;display:flex;align-items:center;justify-content:center;font-size:18px;color:#9e5444}
+.punkte{display:flex;gap:6px}.punkte i{display:block;width:8px;height:8px;border-radius:50%;background:#e3c9bd}.punkte i.an{background:#9e5444}
+.scan h4{font-family:var(--serif);font-size:24px;margin:0;font-weight:600}
+.zwischen{background:#fffdfb;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px;text-align:center}
+.druck-nur{display:none}
+/* Ansicht nur mit dem Handy (#s1, #s2, #s3): dient dem Erzeugen der Bilder für das PDF */
+.nur-handy main>:not([aria-label="Prototyp"]){display:none}
+.nur-handy [aria-label="Prototyp"]>.kopf,.nur-handy .wahl{display:none}
+.nur-handy,.nur-handy body{background:#fff}.nur-handy .bild{min-height:880px}.nur-handy body{padding:10px}.nur-handy .proto{grid-template-columns:minmax(0,1fr)}
+@media print{
+  :root:not([data-theme="light"]){--bg:#fff;--karte:#fffdfb;--text:#44241a;--leise:#6e5047;--akzent:#9e5444;--akzent2:#874536;--weich:#fbe9e3;--linie:#ecdcd3;--ok:#24502d;--okbg:#e9f3ea;--hinweis:#8a2c1b;--hinweisbg:#fbe4df;--schatten:rgba(68,36,26,.10);color-scheme:light}
+  @page{size:A4;margin:12mm}
+  .drei{grid-template-columns:repeat(3,minmax(0,1fr))!important}.zwei{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body{background:#fff;padding:0}.wahl,.nicht-druck{display:none}.druck-nur{display:block}
+  .screen[hidden]{display:block!important}.proto{grid-template-columns:repeat(3,1fr);gap:10px}.handy{max-width:100%}
+  main{gap:22px}.karte,.handy{break-inside:avoid}
+}
+</style>
+</head><body>
+
+
+<main>
+  <header class="kopf">
+    <span class="vorab">Vorschlag für Sina · 13.11.2026</span>
+    <h1>NFC-Magnete mit eigenen Fotos, Videos und Links im Portal</h1>
+    <p class="leise">Ein Magnet, den der Kunde selbst befüllt: Foto drauf, dazu Fotos, Videos, Audio oder ein Link im Hintergrund. Wer das Handy ans Magnet hält, sieht eine schöne Seite und kann alles direkt öffnen. Der Kunde steuert das im Portal, so wie beim Wichteltelefon seine Ansagen.</p>
+  </header>
+
+  <section aria-label="Ausgangslage">
+    <div class="karte">
+      <h3>Warum das ins Portal passt</h3>
+      <ul>
+        <li>Die Technik gibt es schon: Chip öffnet eine Seite, das Portal entscheidet, was dort steht.</li>
+        <li>Konto, Anmeldung per Mail, Verschenken und Chip-Einrichtung sind fertig.</li>
+        <li>Kostet keine Sprach-Credits, nur Speicherplatz.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px" aria-label="Prototyp">
+    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an und probiere im Handy: Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Alles Beispiel, nichts wird gespeichert.</p></div>
+    <div class="proto">
+      <div class="wahl nicht-druck" role="group" aria-label="Bildschirm wählen">
+        <button type="button" data-s="1" aria-pressed="true"><b>1 · Meine Magnete</b><span>Was der Kunde im Portal sieht</span></button>
+        <button type="button" data-s="2" aria-pressed="false"><b>2 · Magnet befüllen</b><span>Titel, Fotos, Video, Audio oder Link</span></button>
+        <button type="button" data-s="3" aria-pressed="false"><b>3 · Beim Scannen</b><span>Was die Familie sieht, wenn sie das Handy ans Magnet hält</span></button>
+        <p class="kleine" style="padding:4px 4px 0">Das Foto auf dem Magneten selbst klebt der Kunde zu Hause auf, das Portal kümmert sich um das, was dahinter liegt.</p>
+      </div>
+
+      <div class="handy">
+        <div class="bild">
+          <div class="leiste"><span>9:41</span><span>taggylove</span></div>
+
+          <!-- 1: Meine Magnete -->
+          <div class="screen inhalt" data-screen="1">
+            <h4 style="font-family:var(--serif);font-size:28px;font-weight:600;margin:0">Hallo Anna</h4>
+            <p style="color:#6e5047">Deine Magnete: Tippe auf einen, um Fotos, Videos oder Links dahinter zu legen.</p>
+            <div class="hkarte">
+              <h4>NFC Magnete (3er Set)</h4>
+              <div class="magnet"><div class="k foto f1"></div><div><b>Oma &amp; Opa</b><small>4 Fotos · <span class="pill">verbunden</span></small></div></div>
+              <div class="magnet"><div class="k foto f2"></div><div><b>Ostsee-Urlaub</b><small>Link zum Album · <span class="pill">verbunden</span></small></div></div>
+              <div class="magnet"><div class="k foto" style="background:#ecdcd3"></div><div><b>Magnet 3</b><small>noch leer · <span class="pill leer">befüllen</span></small></div></div>
+              <button class="hbtn haupt" type="button" data-gehe="2">Magnet befüllen</button>
+              <button class="hbtn neben" type="button">Ein Magnet verschenken</button>
+            </div>
+          </div>
+
+          <!-- 2: Befüllen -->
+          <div class="screen inhalt" data-screen="2" hidden>
+            <h4 style="font-family:var(--serif);font-size:26px;font-weight:600;margin:0">Magnet 3 befüllen</h4>
+            <label class="f" for="mt">Titel (steht oben auf der Seite)<input class="t" id="mt" value="Unser Sommer 2026"></label>
+            <label class="f" for="mu">Kurzer Text, wenn du magst<textarea class="t" id="mu" rows="2">Die schönsten Tage am Meer.</textarea></label>
+            <div class="reiter" role="tablist" aria-label="Was soll dahinter liegen?">
+              <button type="button" role="tab" aria-selected="true" data-r="foto">Foto</button>
+              <button type="button" role="tab" aria-selected="false" data-r="video">Video</button>
+              <button type="button" role="tab" aria-selected="false" data-r="audio">Audio</button>
+              <button type="button" role="tab" aria-selected="false" data-r="link">Link</button>
+            </div>
+            <div data-panel="foto"><div class="ablage"><b>Fotos hinzufügen</b><span>Aus der Galerie wählen oder hierher ziehen. Bis zu 12 MB je Foto, wir verkleinern sie automatisch.</span></div>
+              <div style="display:flex;gap:8px;margin-top:10px"><div class="foto f3" style="width:64px;height:64px"></div><div class="foto f4" style="width:64px;height:64px"></div><div class="foto f1" style="width:64px;height:64px"></div></div></div>
+            <div data-panel="video" hidden><div class="ablage"><b>Video hinzufügen</b><span>Bis 60 Sekunden. Wir rechnen es für alle Handys um, das dauert ein paar Minuten.</span></div></div>
+            <div data-panel="audio" hidden><div class="ablage"><b>Audio hinzufügen</b><span>Sprachmemo oder Musikdatei, auch eine Aufnahme direkt hier.</span><div class="wellen" aria-hidden="true"><i style="height:10px"></i><i style="height:24px"></i><i style="height:34px"></i><i style="height:18px"></i><i style="height:30px"></i><i style="height:12px"></i><i style="height:26px"></i><i style="height:36px"></i><i style="height:16px"></i><i style="height:22px"></i></div></div></div>
+            <div data-panel="link" hidden><label class="f" for="ml">Link eintragen<input class="t" id="ml" value="https://photos.app.goo.gl/…"></label><p class="kleine" style="margin-top:6px">Nur Adressen mit https. Wer scannt, bekommt erst eine Zwischenseite und öffnet den Link bewusst.</p></div>
+            <button class="hbtn haupt" type="button" data-gehe="3">Vorschau ansehen</button>
+            <button class="hbtn neben" type="button" data-gehe="1">Zurück zu meinen Magneten</button>
+          </div>
+
+          <!-- 3: Beim Scannen -->
+          <div class="screen inhalt scan" data-screen="3" hidden>
+            <div id="scanFoto">
+              <div class="foto gross" id="gross"></div>
+              <div class="pfeile" style="margin-top:12px"><button class="pfeil" type="button" id="zurueck" aria-label="Vorheriges Foto">‹</button><div class="punkte" id="punkte" aria-hidden="true"><i class="an"></i><i></i><i></i><i></i></div><button class="pfeil" type="button" id="vor" aria-label="Nächstes Foto">›</button></div>
+              <h4 style="margin-top:12px">Unser Sommer 2026</h4>
+              <p id="unterzeile" style="color:#6e5047">Foto 1 von 4 · Die schönsten Tage am Meer.</p>
+              <button class="hbtn haupt" type="button" id="zeigeLink" style="margin-top:12px">Zum Album bei Google Fotos</button>
+            </div>
+            <div class="zwischen" id="zwischen" hidden>
+              <b style="font-size:18px">Du verlässt taggylove</b>
+              <p style="color:#6e5047">Dieser Link gehört zu <b>photos.app.goo.gl</b>. Öffne ihn nur, wenn du dem Absender vertraust.</p>
+              <button class="hbtn haupt" type="button">Link öffnen</button>
+              <button class="hbtn neben" type="button" id="zurSeite">Zurück zur Seite</button>
+            </div>
+            <p class="kleine" style="text-align:center;margin-top:auto">Gemacht mit taggylove · <u>Inhalt melden</u></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kopf" style="max-width:none;gap:16px"><h2>Was ich bauen würde</h2>
+    <div class="zwei">
+      <div class="karte"><span class="vorab">Stufe 1 · ca. 1–2 Tage Bauzeit</span><h3>Foto, Text, Audio, Link</h3>
+        <ul><li>Neues Produkt „NFC Magnete“: je Set drei Magnete, je Magnet eine eigene Seite.</li><li>Befüllen im Portal und in den Apps: mehrere Fotos, Text, Audio, Link.</li><li>Schöne Seite beim Scannen mit Foto-Wechsel, Link nur über Zwischenseite.</li><li>Verschenken, Umbenennen, Chip einrichten wie beim Telefon.</li><li>Admin: Inhalte ansehen, einzelne sperren, Meldungen sehen.</li></ul></div>
+      <div class="karte"><span class="vorab">Stufe 2 · danach, ca. 1 Tag</span><h3>Video und mehr</h3>
+        <ul><li>Video-Upload mit automatischer Umrechnung auf dem Server (ffmpeg ist installiert).</li><li>Album mit mehreren Elementen hintereinander.</li><li>Ablaufdatum oder Passwort für private Magnete.</li><li>Zähler „so oft wurde dieses Magnet angesehen“.</li></ul></div>
+    </div>
+  </section>
+
+  <section class="kopf" style="max-width:none;gap:16px"><h2>Platz und Grenzen</h2>
+    <p class="leise">Damit Fotos und Videos den Platz auf dem Server nicht auffressen, schlage ich feste Grenzen vor:</p>
+    <div class="tab-wrap"><table><thead><tr><th>Inhalt</th><th>Grenze</th><th>Was wir daraus machen</th></tr></thead><tbody>
+      <tr><td>Foto</td><td>12 MB je Foto</td><td>auf 1600 Pixel verkleinert, danach ca. 0,3 MB</td></tr>
+      <tr><td>Audio</td><td>26 MB</td><td>in MP3 umgewandelt, wie bei eigenen Ansagen</td></tr>
+      <tr><td>Video (Stufe 2)</td><td>60 Sekunden, 100 MB</td><td>auf 720p umgerechnet, ca. 10–15 MB</td></tr>
+      <tr><td>Gesamt je Magnet</td><td>50 MB</td><td>je Set also höchstens 150 MB</td></tr></tbody></table></div>
+    <p class="leise">Bei 100 Sets, die alles ausreizen, wären das 15 GB. Das passt auf den Server. Wird es mehr, hängen wir zusätzlichen Speicher an.</p>
+  </section>
+
+  <section class="zwei" aria-label="Chip und Recht">
+    <div class="karte"><h3>Wer schreibt die Chips?</h3>
+      <p><b>Mein Vorschlag:</b> wie beim Wichteltelefon. Du legst jedes Magnet beim Packen auf den Scanner („Shop-Ware“), der Kunde meldet sich an und tippt auf „Verbinden“.</p>
+      <p class="leise">Das heißt drei Chips mehr pro Set beim Packen. Die Alternative: Der Kunde richtet den Chip selbst ein. Das geht, braucht auf dem iPhone aber eine zusätzliche App und ist deutlich umständlicher.</p>
+      <p class="leise">Für die 16 schon verkauften Sets: die Kunden richten ihre Magnete selbst ein, oder du schickst ihnen neue, beschriebene Chips.</p></div>
+    <div class="karte"><h3>Datenschutz und Recht</h3>
+      <p>Bei Wichtelansagen sind es kurze Texte. Hier laden Kunden Fotos und Videos hoch, auch von Kindern, die jeder sieht, der das Magnet scannt.</p>
+      <ul><li>Neuer Abschnitt in Datenschutzerklärung und AGB: Inhalte, Rechte am Foto, Löschung.</li><li>„Inhalt melden“ auf jeder Seite, dazu eine Sperrfunktion im Admin.</li><li>Links nur mit https und nur über die Zwischenseite.</li><li>Die Texte sollte der Händlerbund prüfen, bevor das live geht.</li></ul></div>
+  </section>
+
+  <section class="kopf" style="max-width:none;gap:14px"><h2>Wie es weitergeht</h2>
+    <div class="karte">
+      <p>Das ist ein erster Wurf, damit du siehst, wohin es gehen kann. Wenn dir die Richtung gefällt, baue ich Stufe 1. Kleinigkeiten klären wir dann beim Bauen, zum Beispiel:</p>
+      <ul>
+        <li>Ob die Magnete mit beschriebenem Chip rausgehen oder ob die Kunden sie selbst einrichten.</li>
+        <li>Ob die Seite beim Scannen mehr das Kundenfoto oder dein taggylove-Aussehen zeigen soll.</li>
+        <li>Ob Videos gleich zum Start dabei sein sollen oder erst in Stufe 2.</li>
+      </ul></div>
+    <div class="ok">Bevor es live geht, brauchen Datenschutzerklärung und AGB ihren neuen Abschnitt. Die Texte schreibe ich vor, der Händlerbund prüft sie.</div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var schirme=document.querySelectorAll('.screen'),wahl=document.querySelectorAll('.wahl button');
+  function geh(n){schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});}
+  wahl.forEach(function(b){b.addEventListener('click',function(){geh(b.getAttribute('data-s'))})});
+  document.querySelectorAll('[data-gehe]').forEach(function(b){b.addEventListener('click',function(){geh(b.getAttribute('data-gehe'))})});
+  var reiter=document.querySelectorAll('.reiter button'),paneele=document.querySelectorAll('[data-panel]');
+  reiter.forEach(function(b){b.addEventListener('click',function(){var r=b.getAttribute('data-r');reiter.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});paneele.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==r})})});
+  var klassen=['f1','f2','f3','f4'],i=0,gross=document.getElementById('gross'),punkte=document.querySelectorAll('#punkte i'),unter=document.getElementById('unterzeile');
+  function zeige(){gross.className='foto gross '+klassen[i];punkte.forEach(function(p,k){p.className=k===i?'an':''});unter.textContent='Foto '+(i+1)+' von 4 · Die schönsten Tage am Meer.'}
+  document.getElementById('vor').addEventListener('click',function(){i=(i+1)%4;zeige()});
+  document.getElementById('zurueck').addEventListener('click',function(){i=(i+3)%4;zeige()});
+  zeige();
+  var hh=location.hash.match(/^#s([123])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1])}
+  var foto=document.getElementById('scanFoto'),zw=document.getElementById('zwischen');
+  document.getElementById('zeigeLink').addEventListener('click',function(){foto.hidden=true;zw.hidden=false});
+  document.getElementById('zurSeite').addEventListener('click',function(){zw.hidden=true;foto.hidden=false});
+})();
+</script>
+
+</body></html>
