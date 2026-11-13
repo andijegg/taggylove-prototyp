@@ -48,63 +48,67 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 .bild .leiste{display:flex;justify-content:space-between;padding:12px 22px 4px;font-size:12px;font-weight:800;color:#6e5047}
 .bild .inhalt{padding:10px 18px 22px;display:flex;flex-direction:column;gap:14px;flex:1;color:#44241a}
 .screen[hidden]{display:none}
-.hbtn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:999px;font-weight:800;font-size:16px;text-align:center}
-.hbtn.haupt{background:#9e5444;color:#fff;box-shadow:0 6px 16px rgba(158,84,68,.28)}
-.hbtn.neben{background:#fffdfb;color:#44241a;border:1.5px solid #ecdcd3}
-.hkarte{background:#fffdfb;border-radius:18px;padding:14px;box-shadow:0 4px 14px rgba(68,36,26,.07);display:flex;flex-direction:column;gap:10px;color:#44241a}
-.hkarte h4{margin:0;font-family:var(--serif);font-size:19px;font-weight:600}
-.magnet{display:flex;gap:12px;align-items:center;padding:10px;border-radius:14px;background:#f7f2ee}
-.magnet .k{flex:none;width:54px;height:54px;border-radius:12px;overflow:hidden}
-.magnet b{display:block;font-size:15px}.magnet small{display:block;font-size:13px;color:#6e5047}
-.pill{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:#e9f3ea;color:#24502d}.pill.leer{background:#fbe9e3;color:#874536}
-.foto{border-radius:12px;position:relative;overflow:hidden}
-.f1{background:linear-gradient(160deg,#f6c7a8 0%,#e8907a 48%,#7a6a9e 100%)}
-.f2{background:linear-gradient(170deg,#bcdcf0 0%,#7fb3d6 55%,#e9d9b5 56%,#d9c08f 100%)}
-.f3{background:linear-gradient(150deg,#cfe6c4 0%,#8fc08a 60%,#5d8a5a 100%)}
-.f4{background:linear-gradient(160deg,#fbe0e6 0%,#f0a5b8 60%,#c76c8a 100%)}
-.foto svg{position:absolute;inset:0;width:100%;height:100%}
-label.f{font-size:13px;font-weight:800;color:#6e5047;display:flex;flex-direction:column;gap:4px}
-input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px solid #ecdcd3;border-radius:12px;background:#fffdfb;color:#44241a;width:100%}
-.reiter{display:flex;gap:6px;background:#f1e6e0;border-radius:999px;padding:4px}
-.reiter button{all:unset;cursor:pointer;flex:1;text-align:center;font-weight:800;font-size:14px;padding:8px 0;border-radius:999px;color:#6e5047}
-.reiter button[aria-selected="true"]{background:#fffdfb;color:#9e5444;box-shadow:0 2px 6px rgba(68,36,26,.1)}
-.ablage{border:2px dashed #e3c9bd;border-radius:14px;padding:16px;text-align:center;font-size:14px;color:#6e5047;display:flex;flex-direction:column;gap:6px;align-items:center}
-.wellen{display:flex;gap:3px;align-items:center;height:40px}.wellen i{display:block;width:4px;background:#9e5444;border-radius:2px}
-.kleine{font-size:12px;color:#6e5047}
-.scan{display:flex;flex-direction:column;gap:12px}
-.scan .gross{aspect-ratio:4/5;border-radius:22px}
-.pfeile{display:flex;justify-content:space-between;align-items:center}
-.pfeil{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;background:#fffdfb;border:1.5px solid #ecdcd3;display:flex;align-items:center;justify-content:center;font-size:18px;color:#9e5444}
-.punkte{display:flex;gap:6px}.punkte i{display:block;width:8px;height:8px;border-radius:50%;background:#e3c9bd}.punkte i.an{background:#9e5444}
-.scan h4{font-family:var(--serif);font-size:24px;margin:0;font-weight:600}
-.zwischen{background:#fffdfb;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px;text-align:center}
-.druck-nur{display:none}
-
-/* ---- Handy-Bildschirme: modern und clean (Sina, 13.11.): helle Fläche, nur Nunito Sans, viel Luft, Foto im Mittelpunkt.
-   Nur die Terrakotta-Farbe bleibt als Erkennungszeichen von taggylove. Die Wichtel-Verspieltheit gibt es hier nicht. ---- */
-.bild{background:#fff;--bg:#fff;--karte:#fff;--linie:#ebe7e4;--weich:#f6f3f1;color:#1f1a18;--text:#1f1a18;--leise:#77706c}
-.bild h4,.bild .scan h4{font-family:var(--sans)!important;font-weight:800!important;letter-spacing:-.01em;color:#1f1a18}
-.bild .inhalt{padding:8px 20px 24px;gap:16px;color:#1f1a18}
-.bild .leiste{color:#77706c}
-.bild p,.bild .hkarte,.bild .zwischen{color:#1f1a18}
-.bild p[style*="6e5047"],.bild small,.bild .kleine,.bild label.f{color:#77706c!important}
-.bild .hkarte{background:#fff;border:1px solid #ebe7e4;box-shadow:none;border-radius:16px;padding:16px;gap:12px}
-.bild .hkarte h4{font-size:17px!important}
-.bild .magnet{background:#f6f3f1;border-radius:12px}
-.bild .magnet .k{border-radius:10px}
-.bild .hbtn{border-radius:12px;min-height:50px;font-weight:700;font-size:15px}
-.bild .hbtn.haupt{background:#9e5444;box-shadow:none}
-.bild .hbtn.neben{background:#fff;border:1px solid #ddd6d2;color:#1f1a18}
-.bild input.t,.bild textarea.t{border:1px solid #ddd6d2;border-radius:12px;background:#fff;color:#1f1a18}
-.bild .reiter{background:#f6f3f1;border-radius:12px}.bild .reiter button{border-radius:9px;color:#77706c}
-.bild .reiter button[aria-selected="true"]{background:#fff;color:#1f1a18;box-shadow:0 1px 3px rgba(0,0,0,.1)}
-.bild .ablage{border:1.5px dashed #d8d0cb;border-radius:12px;color:#77706c;background:#faf8f7}
-.bild .foto{border-radius:10px}
-.bild .scan .gross{border-radius:16px;aspect-ratio:1/1}
-.bild .pfeil{background:#fff;border:1px solid #ddd6d2;color:#1f1a18}
-.bild .punkte i{background:#d8d0cb}.bild .punkte i.an{background:#1f1a18}
-.bild .zwischen{background:#faf8f7;border:1px solid #ebe7e4;border-radius:16px}
-.bild .pill{background:#e9f3ea;color:#24502d}
+/* ---- Handy-Bildschirme: flach, ruhig, modern. Cremeweiß und Terrakotta von taggylove, nur Nunito Sans, keine Schatten und Verläufe ---- */
+.bild{--c-bg:#f7f2ee;--c-flaeche:#fff;--c-text:#2e1a14;--c-leise:#7a6359;--c-linie:#e9ddd5;--c-akzent:#9e5444;--c-weich:#f3e4dc;--c-ok:#3f7a4a;
+  background:var(--c-bg);color:var(--c-text);font-family:var(--sans)}
+.bild .leiste{display:flex;justify-content:space-between;padding:12px 24px 2px;font-size:12px;font-weight:700;color:var(--c-leise)}
+.bild .inhalt{padding:6px 20px 24px;display:flex;flex-direction:column;gap:18px;flex:1;color:var(--c-text)}
+.bild h4{margin:0;font-family:var(--sans);font-weight:800;letter-spacing:-.02em;color:var(--c-text)}
+.bild p{margin:0}
+.kopfzeile{display:flex;align-items:center;justify-content:space-between;min-height:36px}
+.marke{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.marke img{width:26px;height:26px;border-radius:7px;display:block}
+.zurueck{all:unset;cursor:pointer;display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px;color:var(--c-akzent)}
+.hbtn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:14px;font-weight:700;font-size:15px;text-align:center;width:100%}
+.hbtn.haupt{background:var(--c-akzent);color:#fff}
+.hbtn.neben{background:transparent;color:var(--c-akzent);border:1.5px solid var(--c-linie)}
+.hbtn:focus-visible,.zurueck:focus-visible,.seg button:focus-visible,.pfeil:focus-visible,.zeile:focus-visible{outline:3px solid var(--c-akzent);outline-offset:2px}
+.abschnitt{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c-leise)}
+.liste{display:flex;flex-direction:column;gap:10px}
+.zeile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:14px;padding:10px;background:var(--c-flaeche);border-radius:16px;width:100%}
+.zeile .daum{flex:none;width:64px;height:64px;border-radius:12px;background:#ece0d8 center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:var(--c-akzent)}
+.zeile .daum.leer{background:transparent;border:1.5px dashed #d9c5b9}
+.zeile b{display:block;font-size:16px;font-weight:800;letter-spacing:-.01em}
+.zeile small{display:block;font-size:13px;line-height:1.4;color:var(--c-leise);margin-top:3px}
+.punkt{width:8px;height:8px;border-radius:50%;background:var(--c-ok);display:inline-block;margin-right:6px;vertical-align:1px}.punkt.aus{background:#c8b6ab}
+.chevron{margin-left:auto;color:#c4aea2;flex:none}
+.bild label.f{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--c-leise)}
+.bild input.t,.bild textarea.t{font:inherit;font-size:16px;font-weight:600;text-transform:none;letter-spacing:0;padding:13px 14px;border:1.5px solid transparent;border-radius:14px;background:var(--c-flaeche);color:var(--c-text);width:100%;resize:none}
+.bild input.t::placeholder,.bild textarea.t::placeholder{color:#b9a69b;font-weight:600}
+.bild input.t:focus,.bild textarea.t:focus{outline:none;border-color:var(--c-akzent)}
+.seg{display:flex;gap:4px;background:#ece0d8;border-radius:14px;padding:4px}
+.seg button{all:unset;cursor:pointer;flex:1;text-align:center;font-weight:700;font-size:14px;padding:9px 0;border-radius:10px;color:var(--c-leise)}
+.seg button[aria-selected="true"]{background:var(--c-flaeche);color:var(--c-text)}
+.seg button[disabled]{opacity:.45;cursor:default}
+.gitter{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gitter .kachel{position:relative;aspect-ratio:1;border-radius:12px;background:#ece0d8 center/cover no-repeat}
+.gitter .kachel button{all:unset;cursor:pointer;position:absolute;top:5px;right:5px;width:22px;height:22px;border-radius:50%;background:rgba(46,26,20,.7);color:#fff;text-align:center;line-height:21px;font-size:15px;font-weight:700}
+.gitter .plus{all:unset;cursor:pointer;aspect-ratio:1;border-radius:12px;border:1.5px dashed #d2bcae;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--c-akzent);font-weight:700;font-size:12px}
+.mass{display:flex;flex-direction:column;gap:6px}.mass .bar{height:5px;border-radius:3px;background:#ece0d8;overflow:hidden}.mass .bar i{display:block;height:100%;background:var(--c-akzent);border-radius:3px}
+.klein{font-size:12.5px;color:var(--c-leise);line-height:1.45}
+.ablage{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:26px 16px;border-radius:16px;border:1.5px dashed #d2bcae;color:var(--c-leise);font-size:14px;cursor:pointer}
+.ablage b{color:var(--c-text);font-size:15px}
+.bild .karte2{background:var(--c-flaeche);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px}
+/* Scan-Seite */
+.scan{padding:0!important;gap:0!important}
+.scan .kopfzeile{padding:6px 20px 12px}
+.buehne{position:relative;touch-action:pan-y;user-select:none}
+.buehne .bildflaeche{aspect-ratio:4/5;background:#ece0d8 center/cover no-repeat}
+.buehne .bildflaeche.leerbild{background:#ece0d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%239e5444' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center no-repeat}
+.buehne .zaehler{position:absolute;right:16px;top:14px;background:rgba(46,26,20,.62);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.pfeil{all:unset;cursor:pointer;position:absolute;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--c-text);display:flex;align-items:center;justify-content:center}
+.pfeil.l{left:12px}.pfeil.r{right:12px}
+.streifen{display:flex;gap:6px;justify-content:center;padding:12px 0 2px}
+.streifen i{width:6px;height:6px;border-radius:50%;background:#d9c9bf}.streifen i.an{background:var(--c-akzent);width:18px;border-radius:3px}
+.scan .text{padding:12px 22px 6px;display:flex;flex-direction:column;gap:8px}
+.scan h4{font-size:26px;line-height:1.1}
+.scan .unter{color:var(--c-leise);font-size:15px;line-height:1.5}
+.scan .aktionen{padding:10px 20px 6px;display:flex;flex-direction:column;gap:10px}
+.bild .zwischen{margin:20px;background:var(--c-flaeche);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center}
+.bild .zwischen .icon{width:48px;height:48px;border-radius:50%;background:var(--c-weich);color:var(--c-akzent);display:flex;align-items:center;justify-content:center}
+.fuss{margin-top:auto;text-align:center;font-size:12px;color:var(--c-leise);padding:18px 20px 6px}
+.fuss u{text-underline-offset:2px}
+.bild audio{width:100%;height:40px}
 /* Ansicht nur mit dem Handy (#s1, #s2, #s3): dient dem Erzeugen der Bilder für das PDF */
 .nur-handy main>:not([aria-label="Prototyp"]){display:none}
 .nur-handy [aria-label="Prototyp"]>.kopf,.nur-handy .wahl{display:none}
@@ -140,7 +144,7 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
   </section>
 
   <section style="display:flex;flex-direction:column;gap:18px" aria-label="Prototyp">
-    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an und probiere im Handy (bewusst modern und ruhig gehalten, nicht so verspielt wie die Wichtel): Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos, eine Audiodatei und einen Link einsetzen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
+    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an, auf „Sommer am Meer“ für die Ansicht beim Scannen, und probiere im Handy (flach, ruhig und modern, nicht so verspielt wie die Wichtel): Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos, eine Audiodatei und einen Link einsetzen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
     <div class="proto">
       <div class="wahl nicht-druck" role="group" aria-label="Bildschirm wählen">
         <button type="button" data-s="1" aria-pressed="true"><b>1 · Meine Magnete</b><span>Was der Kunde im Portal sieht</span></button>
@@ -151,17 +155,19 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
 
       <div class="handy">
         <div class="bild">
-          <div class="leiste"><span>9:41</span><span>taggylove</span></div>
+          <div class="leiste"><span>9:41</span><span></span></div>
 
           <!-- 1: Meine Magnete -->
           <div class="screen inhalt" data-screen="1">
-            <h4 style="font-family:var(--serif);font-size:28px;font-weight:600;margin:0">Hallo Anna</h4>
-            <p style="color:#6e5047">Deine Magnete: Tippe auf einen, um Fotos, Videos oder Links dahinter zu legen.</p>
-            <div class="hkarte">
-              <h4>NFC Magnete (3er Set)</h4>
-              <div class="magnet"><div class="k foto f1"></div><div><b>Oma &amp; Opa</b><small>4 Fotos · <span class="pill">verbunden</span></small></div></div>
-              <div class="magnet"><div class="k foto f2"></div><div><b>Ostsee-Urlaub</b><small>Link zum Album · <span class="pill">verbunden</span></small></div></div>
-              <div class="magnet"><div class="k foto" id="m3k" style="background:#ecdcd3"></div><div><b id="m3t">Magnet 3</b><small id="m3s">noch leer · <span class="pill leer">befüllen</span></small></div></div>
+            <div class="kopfzeile"><div class="marke"><img src="img/logo.png" alt="">taggylove</div></div>
+            <div><h4 style="font-size:30px">Hallo Anna</h4><p class="klein" style="font-size:15px;margin-top:4px">Deine Magnete. Tippe einen an, um Fotos, Audio oder einen Link dahinter zu legen.</p></div>
+            <div><div class="abschnitt" style="margin-bottom:10px">NFC Magnete · 3er Set</div>
+            <div class="liste">
+              <button class="zeile" type="button" data-gehe="3" data-magnet="1"><span class="daum" style="background-image:url(img/ostsee-2.jpg)"></span><span><b>Sommer am Meer</b><small><span class="punkt"></span>Verbunden · 3 Fotos · Link</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
+              <button class="zeile" type="button" data-gehe="3" data-magnet="2"><span class="daum" style="background-image:url(img/josie.jpg)"></span><span><b>Josie am Strand</b><small><span class="punkt"></span>Verbunden · 1 Foto</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
+              <button class="zeile" type="button" data-gehe="2" data-magnet="3"><span class="daum leer" id="m3k"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><span><b id="m3t">Magnet 3</b><small id="m3s"><span class="punkt aus"></span>Noch leer</small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
+            </div></div>
+            <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
               <button class="hbtn haupt" type="button" data-gehe="2">Magnet befüllen</button>
               <button class="hbtn neben" type="button">Ein Magnet verschenken</button>
             </div>
@@ -169,42 +175,61 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
 
           <!-- 2: Befüllen -->
           <div class="screen inhalt" data-screen="2" hidden>
-            <h4 style="font-family:var(--serif);font-size:26px;font-weight:600;margin:0">Magnet 3 befüllen</h4>
-            <label class="f" for="mt">Titel (steht oben auf der Seite)<input class="t" id="mt" value="" placeholder="z. B. Unser Sommer 2026" maxlength="60"></label>
-            <label class="f" for="mu">Kurzer Text, wenn du magst<textarea class="t" id="mu" rows="2" maxlength="300" placeholder="z. B. Die schönsten Tage am Meer."></textarea></label>
-            <div class="reiter" role="tablist" aria-label="Was soll dahinter liegen?">
-              <button type="button" role="tab" aria-selected="true" data-r="foto">Foto</button>
-              <button type="button" role="tab" aria-selected="false" data-r="video">Video</button>
+            <div class="kopfzeile"><button class="zurueck" type="button" data-gehe="1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg> Meine Magnete</button></div>
+            <div><h4 style="font-size:26px">Magnet befüllen</h4><p class="klein" style="margin-top:4px;display:flex;align-items:center;gap:6px"><span class="punkt"></span>Chip ist verbunden</p></div>
+            <label class="f" for="mt">Titel<input class="t" id="mt" placeholder="z. B. Sommer am Meer" maxlength="60"></label>
+            <label class="f" for="mu">Kurzer Text<textarea class="t" id="mu" rows="2" maxlength="300" placeholder="Ein, zwei Sätze zu den Bildern"></textarea></label>
+            <div class="seg" role="tablist" aria-label="Was soll dahinter liegen?">
+              <button type="button" role="tab" aria-selected="true" data-r="foto">Fotos</button>
               <button type="button" role="tab" aria-selected="false" data-r="audio">Audio</button>
               <button type="button" role="tab" aria-selected="false" data-r="link">Link</button>
+              <button type="button" role="tab" aria-selected="false" disabled title="Kommt in Stufe 2">Video</button>
             </div>
-            <div data-panel="foto"><label class="ablage" style="cursor:pointer"><input type="file" id="fotoWahl" accept="image/*" multiple hidden><b>Fotos hinzufügen</b><span>Aus der Galerie wählen. Im echten Portal bis zu 12 MB je Foto, wir verkleinern sie automatisch. Hier bleibt alles auf deinem Gerät.</span></label>
-              <div id="fotoListe" style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"></div><p class="kleine" id="fotoZahl" style="margin-top:6px">Noch keine Fotos gewählt, dann siehst du bei der Vorschau Beispielbilder.</p></div>
-            <div data-panel="video" hidden><div class="ablage"><b>Video kommt in Stufe 2</b><span>Bis 60 Sekunden. Wir rechnen es für alle Handys um.</span></div></div>
-            <div data-panel="audio" hidden><label class="ablage" style="cursor:pointer"><input type="file" id="audioWahl" accept="audio/*" hidden><b id="audioName">Audio hinzufügen</b><span>Sprachmemo oder Musikdatei. Im echten Portal auch eine Aufnahme direkt hier.</span></label><audio id="audioVor" controls hidden style="width:100%;margin-top:10px"></audio></div>
-            <div data-panel="link" hidden><label class="f" for="ml">Link eintragen<input class="t" id="ml" value="" placeholder="https://photos.app.goo.gl/…" inputmode="url" autocapitalize="off"></label><p class="kleine" id="linkHinweis" style="margin-top:6px">Nur Adressen mit https. Wer scannt, bekommt erst eine Zwischenseite und öffnet den Link bewusst.</p></div>
-            <button class="hbtn haupt" type="button" data-gehe="3">Vorschau ansehen</button>
-            <button class="hbtn neben" type="button" data-gehe="1">Zurück zu meinen Magneten</button>
-            <button class="hbtn neben" type="button" id="reset" style="min-height:40px;font-size:14px">Alles zurücksetzen</button>
+            <div data-panel="foto" style="display:flex;flex-direction:column;gap:12px">
+              <div class="gitter" id="gitter"></div>
+              <input type="file" id="fotoWahl" accept="image/*" multiple hidden>
+              <div class="mass"><div class="bar"><i id="balken" style="width:0"></i></div><p class="klein" id="fotoZahl"></p></div>
+            </div>
+            <div data-panel="audio" hidden style="display:flex;flex-direction:column;gap:12px">
+              <label class="ablage" for="audioWahl"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><b id="audioName">Audiodatei auswählen</b><span>Sprachmemo oder Musik, bis 26 MB. Wir wandeln sie in MP3 um.</span></label>
+              <input type="file" id="audioWahl" accept="audio/*" hidden>
+              <audio id="audioVor" controls hidden></audio>
+            </div>
+            <div data-panel="link" hidden style="display:flex;flex-direction:column;gap:10px">
+              <label class="f" for="ml">Adresse<input class="t" id="ml" placeholder="https://…" inputmode="url" autocapitalize="off" autocomplete="off"></label>
+              <p class="klein" id="linkHinweis">Nur Adressen mit https. Wer scannt, sieht erst eine Zwischenseite und öffnet den Link bewusst.</p>
+            </div>
+            <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+              <button class="hbtn haupt" type="button" data-gehe="3">Vorschau ansehen</button>
+              <button class="hbtn neben" type="button" id="reset" style="min-height:42px;font-size:14px">Magnet 3 leeren</button>
+            </div>
           </div>
 
           <!-- 3: Beim Scannen -->
           <div class="screen inhalt scan" data-screen="3" hidden>
-            <div id="scanFoto">
-              <div class="foto gross" id="gross" style="background-size:cover;background-position:center"></div>
-              <div class="pfeile" id="pfeile" style="margin-top:12px"><button class="pfeil" type="button" id="zurueck" aria-label="Vorheriges Foto">‹</button><div class="punkte" id="punkte" aria-hidden="true"></div><button class="pfeil" type="button" id="vor" aria-label="Nächstes Foto">›</button></div>
-              <h4 style="margin-top:12px" id="scanTitel">Unser Sommer 2026</h4>
-              <p id="unterzeile" style="color:#6e5047"></p>
-              <audio id="scanAudio" controls hidden style="width:100%;margin-top:10px"></audio>
-              <button class="hbtn haupt" type="button" id="zeigeLink" style="margin-top:12px" hidden>Link öffnen</button>
+            <div id="scanFoto" style="display:flex;flex-direction:column;flex:1">
+              <div class="kopfzeile"><div class="marke"><img src="img/logo.png" alt="">taggylove</div></div>
+              <div class="buehne" id="buehne">
+                <div class="bildflaeche" id="gross" role="img" aria-label="Foto"></div>
+                <span class="zaehler" id="zaehler"></span>
+                <button class="pfeil l" type="button" id="zurueck" aria-label="Vorheriges Foto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+                <button class="pfeil r" type="button" id="vor" aria-label="Nächstes Foto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+              </div>
+              <div class="streifen" id="punkte" aria-hidden="true"></div>
+              <div class="text"><h4 id="scanTitel"></h4><p class="unter" id="unterzeile"></p></div>
+              <div class="aktionen">
+                <audio id="scanAudio" controls hidden></audio>
+                <button class="zeile" type="button" id="zeigeLink" hidden style="border:1.5px solid var(--c-linie)"><span class="daum" style="width:44px;height:44px;background:var(--c-weich)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span><b id="linkTitel">Mehr ansehen</b><small id="linkSub"></small></span><span class="chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></button>
+              </div>
+              <p class="fuss">Gemacht mit taggylove · <u>Inhalt melden</u></p>
             </div>
             <div class="zwischen" id="zwischen" hidden>
-              <b style="font-size:18px">Du verlässt taggylove</b>
-              <p style="color:#6e5047">Dieser Link gehört zu <b id="linkHost">photos.app.goo.gl</b>. Öffne ihn nur, wenn du dem Absender vertraust.</p>
+              <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span>
+              <b style="font-size:19px">Du verlässt taggylove</b>
+              <p class="klein" style="font-size:14px">Dieser Link gehört zu <b id="linkHost"></b>. Öffne ihn nur, wenn du dem Absender vertraust.</p>
               <a class="hbtn haupt" id="linkGo" href="#" target="_blank" rel="noopener noreferrer nofollow">Link öffnen</a>
               <button class="hbtn neben" type="button" id="zurSeite">Zurück zur Seite</button>
             </div>
-            <p class="kleine" style="text-align:center;margin-top:auto">Gemacht mit taggylove · <u>Inhalt melden</u></p>
           </div>
         </div>
       </div>
@@ -256,46 +281,59 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
 (function(){
   var $=function(i){return document.getElementById(i)};
   var schirme=document.querySelectorAll('.screen'),wahl=document.querySelectorAll('.wahl button');
-  var st={fotos:[],audio:null,link:''};
-  var beispiel=['f1','f2','f3','f4'],idx=0;
+  var MAG={1:{titel:'Sommer am Meer',text:'Sand, Wind und Eis. Die schönsten Tage in einem Magneten.',link:'https://example.com/album',linkTitel:'Alle Fotos im Album',
+      fotos:['img/ostsee-2.jpg','img/ostsee-1.jpg','img/strand-abend.jpg']},
+    2:{titel:'Josie am Strand',text:'Josie ist am liebsten im Wasser. Hier ist sie wieder nass.',link:'',fotos:['img/josie.jpg']}};
+  var st={fotos:[],audio:null,link:''},idx=0,aktuell=3;
+  var ICON_PLUS='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
   function host(u){try{var x=new URL(u);return x.protocol==='https:'?x.hostname:''}catch(e){return ''}}
-  function geh(n){schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();if(String(n)==='1')baueListe()}
-  wahl.forEach(function(b){b.addEventListener('click',function(){geh(b.getAttribute('data-s'))})});
-  document.querySelectorAll('[data-gehe]').forEach(function(b){b.addEventListener('click',function(){geh(b.getAttribute('data-gehe'))})});
-  var reiter=document.querySelectorAll('.reiter button'),paneele=document.querySelectorAll('[data-panel]');
-  reiter.forEach(function(b){b.addEventListener('click',function(){var r=b.getAttribute('data-r');reiter.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});paneele.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==r})})});
+  function geh(n){if(String(n)==='2')aktuell=3;schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();if(String(n)==='1')baueListe();if(String(n)==='2')zeichneFotos()}
+  wahl.forEach(function(b){b.addEventListener('click',function(){var n=b.getAttribute('data-s');geh(n);if(n==='3'){aktuell=1;baueScan()}})});
+  document.querySelectorAll('[data-gehe]').forEach(function(b){b.addEventListener('click',function(){var m=b.getAttribute('data-magnet');geh(b.getAttribute('data-gehe'));if(m&&b.getAttribute('data-gehe')==='3'){aktuell=+m;baueScan()}})});
+  var reiter=document.querySelectorAll('.seg button:not([disabled])'),paneele=document.querySelectorAll('[data-panel]');
+  function reiterZeigen(r){reiter.forEach(function(x){x.setAttribute('aria-selected',x.getAttribute('data-r')===r?'true':'false')});paneele.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==r})}
+  reiter.forEach(function(b){b.addEventListener('click',function(){reiterZeigen(b.getAttribute('data-r'))})});
+  reiterZeigen('foto');
 
-  // Fotos: wie im echten Portal auf 1600 Pixel verkleinern, hier nur im Browser
   function verkleinern(datei){return new Promise(function(ok){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=1600,f=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*f);c.height=Math.round(im.height*f);c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.82))};im.onerror=function(){ok(null)};im.src=r.result};r.onerror=function(){ok(null)};r.readAsDataURL(datei)})}
-  function zeichneFotos(){var l=$('fotoListe');l.innerHTML='';st.fotos.forEach(function(u,k){var w=document.createElement('div');w.style.cssText='position:relative;width:64px;height:64px';var d=document.createElement('div');d.className='foto';d.style.cssText='width:64px;height:64px;background:url('+u+') center/cover';var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','Foto '+(k+1)+' entfernen');x.style.cssText='all:unset;cursor:pointer;position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:#9e5444;color:#fff;text-align:center;line-height:22px;font-weight:800';x.onclick=function(){st.fotos.splice(k,1);zeichneFotos()};w.appendChild(d);w.appendChild(x);l.appendChild(w)});
-    $('fotoZahl').textContent=st.fotos.length?st.fotos.length+(st.fotos.length===1?' Foto gewählt.':' Fotos gewählt.'):'Noch keine Fotos gewählt, dann siehst du bei der Vorschau Beispielbilder.'}
+  function zeichneFotos(){var g=$('gitter');g.innerHTML='';
+    st.fotos.forEach(function(u,k){var d=document.createElement('div');d.className='kachel';d.style.backgroundImage='url("'+u+'")';var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','Foto '+(k+1)+' entfernen');x.onclick=function(){st.fotos.splice(k,1);zeichneFotos()};d.appendChild(x);g.appendChild(d)});
+    if(st.fotos.length<12){var p=document.createElement('button');p.type='button';p.className='plus';p.innerHTML=ICON_PLUS+'<span>Foto</span>';p.onclick=function(){$('fotoWahl').click()};g.appendChild(p)}
+    var n=st.fotos.length,mb=(n*0.3).toFixed(1).replace('.',',');
+    $('balken').style.width=Math.min(100,n/12*100)+'%';
+    $('fotoZahl').textContent=n+' von 12 Fotos · etwa '+mb+' MB von 50 MB'}
   $('fotoWahl').addEventListener('change',function(e){var dateien=Array.prototype.slice.call(e.target.files).filter(function(f){return /^image\//.test(f.type)}).slice(0,12-st.fotos.length);
     Promise.all(dateien.map(verkleinern)).then(function(a){a.forEach(function(u){if(u)st.fotos.push(u)});zeichneFotos();e.target.value=''})});
-  $('audioWahl').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio={url:URL.createObjectURL(f),name:f.name};$('audioName').textContent='Gewählt: '+f.name;var a=$('audioVor');a.src=st.audio.url;a.hidden=false});
-  $('ml').addEventListener('input',function(e){var v=e.target.value.trim();st.link=host(v)?v:'';$('linkHinweis').textContent=!v?'Nur Adressen mit https. Wer scannt, bekommt erst eine Zwischenseite und öffnet den Link bewusst.':(host(v)?'Gültig. Beim Scannen erscheint zuerst die Zwischenseite für '+host(v)+'.':'Das ist keine Adresse mit https, so würde sie nicht angenommen.')});
+  $('audioWahl').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio={url:URL.createObjectURL(f),name:f.name};$('audioName').textContent=f.name;var a=$('audioVor');a.src=st.audio.url;a.hidden=false});
+  $('ml').addEventListener('input',function(e){var v=e.target.value.trim();st.link=host(v)?v:'';$('linkHinweis').textContent=!v?'Nur Adressen mit https. Wer scannt, sieht erst eine Zwischenseite und öffnet den Link bewusst.':(host(v)?'Gültig. Beim Scannen erscheint zuerst die Zwischenseite für '+host(v)+'.':'Das ist keine Adresse mit https und würde so nicht angenommen.')});
 
-  function titel(){return $('mt').value.trim()}
-  function baueListe(){var t=titel(),n=st.fotos.length,teile=[];if(n)teile.push(n+(n===1?' Foto':' Fotos'));if(st.audio)teile.push('Audio');if(st.link)teile.push('Link');
-    $('m3t').textContent=t||'Magnet 3';
-    $('m3s').innerHTML=(teile.length?teile.join(' · ')+' · <span class="pill">verbunden</span>':'noch leer · <span class="pill leer">befüllen</span>');
-    var k=$('m3k');k.style.background=n?'url('+st.fotos[0]+') center/cover':'#ecdcd3'}
-  function bildzeigen(){var g=$('gross'),n=st.fotos.length||beispiel.length;idx=(idx+n)%n;
-    if(st.fotos.length){g.className='foto gross';g.style.background='url('+st.fotos[idx]+') center/cover'}else{g.className='foto gross '+beispiel[idx];g.style.background=''}
-    var p=$('punkte');p.innerHTML='';for(var k=0;k<n;k++){var i=document.createElement('i');if(k===idx)i.className='an';p.appendChild(i)}
-    $('pfeile').hidden=n<2;
-    var tx=$('mu').value.trim();$('unterzeile').textContent=(n>1?'Foto '+(idx+1)+' von '+n:'')+(n>1&&tx?' · ':'')+tx}
-  function baueScan(){idx=0;$('scanTitel').textContent=titel()||'Unser Sommer 2026';
-    bildzeigen();
-    var a=$('scanAudio');if(st.audio){a.src=st.audio.url;a.hidden=false}else{a.hidden=true;a.removeAttribute('src')}
-    var b=$('zeigeLink');if(st.link){b.hidden=false;b.textContent='Link öffnen ('+host(st.link)+')';$('linkHost').textContent=host(st.link);$('linkGo').href=st.link}else{b.hidden=true}
+  function daten(){if(aktuell!==3)return MAG[aktuell];return {titel:$('mt').value.trim()||'Dein Titel',text:$('mu').value.trim()||'Hier erscheint dein Text.',fotos:st.fotos,link:st.link,linkTitel:'Mehr ansehen',audio:st.audio}}
+  function baueListe(){var t=$('mt').value.trim(),n=st.fotos.length,teile=[];
+    $('m3t').textContent='Magnet 3';
+    $('m3s').innerHTML='<span class="punkt aus"></span>Noch leer';
+    var k=$('m3k');k.className='daum leer';k.style.backgroundImage='';k.innerHTML=ICON_PLUS;
+    if(t||$('mu').value.trim()){ /* eigene Eingabe: Magnet 3 trägt den neuen Titel */
+      $('m3t').textContent=t||'Magnet 3';if(n)teile.push(n+(n===1?' Foto':' Fotos'));if(st.audio)teile.push('Audio');if(st.link)teile.push('Link');
+      $('m3s').innerHTML='<span class="punkt"></span>Verbunden'+(teile.length?' · '+teile.join(' · '):'');
+      if(n){k.className='daum';k.innerHTML='';k.style.backgroundImage='url("'+st.fotos[0]+'")'}}}
+  function bildzeigen(){var F=daten().fotos,n=F.length;
+    if(!n){$('gross').style.backgroundImage='';$('gross').classList.add('leerbild');$('zaehler').hidden=true;$('punkte').innerHTML='';$('vor').hidden=$('zurueck').hidden=true;return}
+    $('gross').classList.remove('leerbild');idx=(idx+n)%n;$('gross').style.backgroundImage='url("'+F[idx]+'")';
+    $('zaehler').hidden=n<2;$('zaehler').textContent=(idx+1)+' / '+n;
+    var p=$('punkte');p.innerHTML='';if(n>1)for(var k=0;k<n;k++){var i=document.createElement('i');if(k===idx)i.className='an';p.appendChild(i)}
+    $('vor').hidden=$('zurueck').hidden=n<2}
+  function baueScan(){var d=daten();idx=0;$('scanTitel').textContent=d.titel;$('unterzeile').textContent=d.text;bildzeigen();
+    var a=$('scanAudio');if(d.audio){a.src=d.audio.url;a.hidden=false}else{a.hidden=true;a.removeAttribute('src')}
+    var b=$('zeigeLink');if(d.link){b.hidden=false;$('linkTitel').textContent=d.linkTitel;$('linkSub').textContent=host(d.link);$('linkHost').textContent=host(d.link);$('linkGo').href=d.link}else{b.hidden=true}
     $('scanFoto').hidden=false;$('zwischen').hidden=true}
   $('vor').addEventListener('click',function(){idx++;bildzeigen()});
   $('zurueck').addEventListener('click',function(){idx--;bildzeigen()});
+  var x0=null;$('buehne').addEventListener('pointerdown',function(e){x0=e.clientX});
+  $('buehne').addEventListener('pointerup',function(e){if(x0===null)return;var d=e.clientX-x0;x0=null;if(Math.abs(d)>40){idx+=d<0?1:-1;bildzeigen()}});
   $('zeigeLink').addEventListener('click',function(){$('scanFoto').hidden=true;$('zwischen').hidden=false});
   $('zurSeite').addEventListener('click',function(){$('zwischen').hidden=true;$('scanFoto').hidden=false});
-  $('reset').addEventListener('click',function(){st.fotos=[];if(st.audio){URL.revokeObjectURL(st.audio.url)}st.audio=null;st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('audioVor').hidden=true;$('audioVor').removeAttribute('src');$('audioName').textContent='Audio hinzufügen';zeichneFotos();baueListe();geh(1)});
-  var hh=location.hash.match(/^#s([123])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1])}
-  baueListe();zeichneFotos();bildzeigen();
+  $('reset').addEventListener('click',function(){if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio=null;st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('audioVor').hidden=true;$('audioVor').removeAttribute('src');$('audioName').textContent='Audiodatei auswählen';zeichneFotos();baueListe();geh(1)});
+  var hh=location.hash.match(/^#s([123])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1]);if(hh[1]==='3'){aktuell=1;baueScan()}}else{geh(1)}
 })();
 </script>
 
