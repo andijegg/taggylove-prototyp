@@ -114,7 +114,7 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
   </section>
 
   <section style="display:flex;flex-direction:column;gap:18px" aria-label="Prototyp">
-    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an und probiere im Handy: Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Alles Beispiel, nichts wird gespeichert.</p></div>
+    <div class="kopf"><h2>So könnte es aussehen</h2><p class="leise nicht-druck">Tippe links einen der drei Bildschirme an und probiere im Handy: Reiter wechseln, Fotos durchblättern, den Link-Hinweis ansehen. Du kannst bei Schritt 2 eigene Fotos, eine Audiodatei und einen Link einsetzen und dir bei Schritt 3 ansehen, wie es wirkt. Alles läuft nur in deinem Browser, nichts wird hochgeladen oder gespeichert.</p></div>
     <div class="proto">
       <div class="wahl nicht-druck" role="group" aria-label="Bildschirm wählen">
         <button type="button" data-s="1" aria-pressed="true"><b>1 · Meine Magnete</b><span>Was der Kunde im Portal sieht</span></button>
@@ -135,7 +135,7 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
               <h4>NFC Magnete (3er Set)</h4>
               <div class="magnet"><div class="k foto f1"></div><div><b>Oma &amp; Opa</b><small>4 Fotos · <span class="pill">verbunden</span></small></div></div>
               <div class="magnet"><div class="k foto f2"></div><div><b>Ostsee-Urlaub</b><small>Link zum Album · <span class="pill">verbunden</span></small></div></div>
-              <div class="magnet"><div class="k foto" style="background:#ecdcd3"></div><div><b>Magnet 3</b><small>noch leer · <span class="pill leer">befüllen</span></small></div></div>
+              <div class="magnet"><div class="k foto" id="m3k" style="background:#ecdcd3"></div><div><b id="m3t">Magnet 3</b><small id="m3s">noch leer · <span class="pill leer">befüllen</span></small></div></div>
               <button class="hbtn haupt" type="button" data-gehe="2">Magnet befüllen</button>
               <button class="hbtn neben" type="button">Ein Magnet verschenken</button>
             </div>
@@ -144,36 +144,38 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
           <!-- 2: Befüllen -->
           <div class="screen inhalt" data-screen="2" hidden>
             <h4 style="font-family:var(--serif);font-size:26px;font-weight:600;margin:0">Magnet 3 befüllen</h4>
-            <label class="f" for="mt">Titel (steht oben auf der Seite)<input class="t" id="mt" value="Unser Sommer 2026"></label>
-            <label class="f" for="mu">Kurzer Text, wenn du magst<textarea class="t" id="mu" rows="2">Die schönsten Tage am Meer.</textarea></label>
+            <label class="f" for="mt">Titel (steht oben auf der Seite)<input class="t" id="mt" value="" placeholder="z. B. Unser Sommer 2026" maxlength="60"></label>
+            <label class="f" for="mu">Kurzer Text, wenn du magst<textarea class="t" id="mu" rows="2" maxlength="300" placeholder="z. B. Die schönsten Tage am Meer."></textarea></label>
             <div class="reiter" role="tablist" aria-label="Was soll dahinter liegen?">
               <button type="button" role="tab" aria-selected="true" data-r="foto">Foto</button>
               <button type="button" role="tab" aria-selected="false" data-r="video">Video</button>
               <button type="button" role="tab" aria-selected="false" data-r="audio">Audio</button>
               <button type="button" role="tab" aria-selected="false" data-r="link">Link</button>
             </div>
-            <div data-panel="foto"><div class="ablage"><b>Fotos hinzufügen</b><span>Aus der Galerie wählen oder hierher ziehen. Bis zu 12 MB je Foto, wir verkleinern sie automatisch.</span></div>
-              <div style="display:flex;gap:8px;margin-top:10px"><div class="foto f3" style="width:64px;height:64px"></div><div class="foto f4" style="width:64px;height:64px"></div><div class="foto f1" style="width:64px;height:64px"></div></div></div>
-            <div data-panel="video" hidden><div class="ablage"><b>Video hinzufügen</b><span>Bis 60 Sekunden. Wir rechnen es für alle Handys um, das dauert ein paar Minuten.</span></div></div>
-            <div data-panel="audio" hidden><div class="ablage"><b>Audio hinzufügen</b><span>Sprachmemo oder Musikdatei, auch eine Aufnahme direkt hier.</span><div class="wellen" aria-hidden="true"><i style="height:10px"></i><i style="height:24px"></i><i style="height:34px"></i><i style="height:18px"></i><i style="height:30px"></i><i style="height:12px"></i><i style="height:26px"></i><i style="height:36px"></i><i style="height:16px"></i><i style="height:22px"></i></div></div></div>
-            <div data-panel="link" hidden><label class="f" for="ml">Link eintragen<input class="t" id="ml" value="https://photos.app.goo.gl/…"></label><p class="kleine" style="margin-top:6px">Nur Adressen mit https. Wer scannt, bekommt erst eine Zwischenseite und öffnet den Link bewusst.</p></div>
+            <div data-panel="foto"><label class="ablage" style="cursor:pointer"><input type="file" id="fotoWahl" accept="image/*" multiple hidden><b>Fotos hinzufügen</b><span>Aus der Galerie wählen. Im echten Portal bis zu 12 MB je Foto, wir verkleinern sie automatisch. Hier bleibt alles auf deinem Gerät.</span></label>
+              <div id="fotoListe" style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"></div><p class="kleine" id="fotoZahl" style="margin-top:6px">Noch keine Fotos gewählt, dann siehst du bei der Vorschau Beispielbilder.</p></div>
+            <div data-panel="video" hidden><div class="ablage"><b>Video kommt in Stufe 2</b><span>Bis 60 Sekunden. Wir rechnen es für alle Handys um.</span></div></div>
+            <div data-panel="audio" hidden><label class="ablage" style="cursor:pointer"><input type="file" id="audioWahl" accept="audio/*" hidden><b id="audioName">Audio hinzufügen</b><span>Sprachmemo oder Musikdatei. Im echten Portal auch eine Aufnahme direkt hier.</span></label><audio id="audioVor" controls hidden style="width:100%;margin-top:10px"></audio></div>
+            <div data-panel="link" hidden><label class="f" for="ml">Link eintragen<input class="t" id="ml" value="" placeholder="https://photos.app.goo.gl/…" inputmode="url" autocapitalize="off"></label><p class="kleine" id="linkHinweis" style="margin-top:6px">Nur Adressen mit https. Wer scannt, bekommt erst eine Zwischenseite und öffnet den Link bewusst.</p></div>
             <button class="hbtn haupt" type="button" data-gehe="3">Vorschau ansehen</button>
             <button class="hbtn neben" type="button" data-gehe="1">Zurück zu meinen Magneten</button>
+            <button class="hbtn neben" type="button" id="reset" style="min-height:40px;font-size:14px">Alles zurücksetzen</button>
           </div>
 
           <!-- 3: Beim Scannen -->
           <div class="screen inhalt scan" data-screen="3" hidden>
             <div id="scanFoto">
-              <div class="foto gross" id="gross"></div>
-              <div class="pfeile" style="margin-top:12px"><button class="pfeil" type="button" id="zurueck" aria-label="Vorheriges Foto">‹</button><div class="punkte" id="punkte" aria-hidden="true"><i class="an"></i><i></i><i></i><i></i></div><button class="pfeil" type="button" id="vor" aria-label="Nächstes Foto">›</button></div>
-              <h4 style="margin-top:12px">Unser Sommer 2026</h4>
-              <p id="unterzeile" style="color:#6e5047">Foto 1 von 4 · Die schönsten Tage am Meer.</p>
-              <button class="hbtn haupt" type="button" id="zeigeLink" style="margin-top:12px">Zum Album bei Google Fotos</button>
+              <div class="foto gross" id="gross" style="background-size:cover;background-position:center"></div>
+              <div class="pfeile" id="pfeile" style="margin-top:12px"><button class="pfeil" type="button" id="zurueck" aria-label="Vorheriges Foto">‹</button><div class="punkte" id="punkte" aria-hidden="true"></div><button class="pfeil" type="button" id="vor" aria-label="Nächstes Foto">›</button></div>
+              <h4 style="margin-top:12px" id="scanTitel">Unser Sommer 2026</h4>
+              <p id="unterzeile" style="color:#6e5047"></p>
+              <audio id="scanAudio" controls hidden style="width:100%;margin-top:10px"></audio>
+              <button class="hbtn haupt" type="button" id="zeigeLink" style="margin-top:12px" hidden>Link öffnen</button>
             </div>
             <div class="zwischen" id="zwischen" hidden>
               <b style="font-size:18px">Du verlässt taggylove</b>
-              <p style="color:#6e5047">Dieser Link gehört zu <b>photos.app.goo.gl</b>. Öffne ihn nur, wenn du dem Absender vertraust.</p>
-              <button class="hbtn haupt" type="button">Link öffnen</button>
+              <p style="color:#6e5047">Dieser Link gehört zu <b id="linkHost">photos.app.goo.gl</b>. Öffne ihn nur, wenn du dem Absender vertraust.</p>
+              <a class="hbtn haupt" id="linkGo" href="#" target="_blank" rel="noopener noreferrer nofollow">Link öffnen</a>
               <button class="hbtn neben" type="button" id="zurSeite">Zurück zur Seite</button>
             </div>
             <p class="kleine" style="text-align:center;margin-top:auto">Gemacht mit taggylove · <u>Inhalt melden</u></p>
@@ -226,21 +228,48 @@ input.t,textarea.t{font:inherit;font-size:16px;padding:11px 12px;border:1.5px so
 
 <script>
 (function(){
+  var $=function(i){return document.getElementById(i)};
   var schirme=document.querySelectorAll('.screen'),wahl=document.querySelectorAll('.wahl button');
-  function geh(n){schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});}
+  var st={fotos:[],audio:null,link:''};
+  var beispiel=['f1','f2','f3','f4'],idx=0;
+  function host(u){try{var x=new URL(u);return x.protocol==='https:'?x.hostname:''}catch(e){return ''}}
+  function geh(n){schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();if(String(n)==='1')baueListe()}
   wahl.forEach(function(b){b.addEventListener('click',function(){geh(b.getAttribute('data-s'))})});
   document.querySelectorAll('[data-gehe]').forEach(function(b){b.addEventListener('click',function(){geh(b.getAttribute('data-gehe'))})});
   var reiter=document.querySelectorAll('.reiter button'),paneele=document.querySelectorAll('[data-panel]');
   reiter.forEach(function(b){b.addEventListener('click',function(){var r=b.getAttribute('data-r');reiter.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});paneele.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==r})})});
-  var klassen=['f1','f2','f3','f4'],i=0,gross=document.getElementById('gross'),punkte=document.querySelectorAll('#punkte i'),unter=document.getElementById('unterzeile');
-  function zeige(){gross.className='foto gross '+klassen[i];punkte.forEach(function(p,k){p.className=k===i?'an':''});unter.textContent='Foto '+(i+1)+' von 4 · Die schönsten Tage am Meer.'}
-  document.getElementById('vor').addEventListener('click',function(){i=(i+1)%4;zeige()});
-  document.getElementById('zurueck').addEventListener('click',function(){i=(i+3)%4;zeige()});
-  zeige();
+
+  // Fotos: wie im echten Portal auf 1600 Pixel verkleinern, hier nur im Browser
+  function verkleinern(datei){return new Promise(function(ok){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=1600,f=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*f);c.height=Math.round(im.height*f);c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.82))};im.onerror=function(){ok(null)};im.src=r.result};r.onerror=function(){ok(null)};r.readAsDataURL(datei)})}
+  function zeichneFotos(){var l=$('fotoListe');l.innerHTML='';st.fotos.forEach(function(u,k){var w=document.createElement('div');w.style.cssText='position:relative;width:64px;height:64px';var d=document.createElement('div');d.className='foto';d.style.cssText='width:64px;height:64px;background:url('+u+') center/cover';var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','Foto '+(k+1)+' entfernen');x.style.cssText='all:unset;cursor:pointer;position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:#9e5444;color:#fff;text-align:center;line-height:22px;font-weight:800';x.onclick=function(){st.fotos.splice(k,1);zeichneFotos()};w.appendChild(d);w.appendChild(x);l.appendChild(w)});
+    $('fotoZahl').textContent=st.fotos.length?st.fotos.length+(st.fotos.length===1?' Foto gewählt.':' Fotos gewählt.'):'Noch keine Fotos gewählt, dann siehst du bei der Vorschau Beispielbilder.'}
+  $('fotoWahl').addEventListener('change',function(e){var dateien=Array.prototype.slice.call(e.target.files).filter(function(f){return /^image\//.test(f.type)}).slice(0,12-st.fotos.length);
+    Promise.all(dateien.map(verkleinern)).then(function(a){a.forEach(function(u){if(u)st.fotos.push(u)});zeichneFotos();e.target.value=''})});
+  $('audioWahl').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;if(st.audio)URL.revokeObjectURL(st.audio.url);st.audio={url:URL.createObjectURL(f),name:f.name};$('audioName').textContent='Gewählt: '+f.name;var a=$('audioVor');a.src=st.audio.url;a.hidden=false});
+  $('ml').addEventListener('input',function(e){var v=e.target.value.trim();st.link=host(v)?v:'';$('linkHinweis').textContent=!v?'Nur Adressen mit https. Wer scannt, bekommt erst eine Zwischenseite und öffnet den Link bewusst.':(host(v)?'Gültig. Beim Scannen erscheint zuerst die Zwischenseite für '+host(v)+'.':'Das ist keine Adresse mit https, so würde sie nicht angenommen.')});
+
+  function titel(){return $('mt').value.trim()}
+  function baueListe(){var t=titel(),n=st.fotos.length,teile=[];if(n)teile.push(n+(n===1?' Foto':' Fotos'));if(st.audio)teile.push('Audio');if(st.link)teile.push('Link');
+    $('m3t').textContent=t||'Magnet 3';
+    $('m3s').innerHTML=(teile.length?teile.join(' · ')+' · <span class="pill">verbunden</span>':'noch leer · <span class="pill leer">befüllen</span>');
+    var k=$('m3k');k.style.background=n?'url('+st.fotos[0]+') center/cover':'#ecdcd3'}
+  function bildzeigen(){var g=$('gross'),n=st.fotos.length||beispiel.length;idx=(idx+n)%n;
+    if(st.fotos.length){g.className='foto gross';g.style.background='url('+st.fotos[idx]+') center/cover'}else{g.className='foto gross '+beispiel[idx];g.style.background=''}
+    var p=$('punkte');p.innerHTML='';for(var k=0;k<n;k++){var i=document.createElement('i');if(k===idx)i.className='an';p.appendChild(i)}
+    $('pfeile').hidden=n<2;
+    var tx=$('mu').value.trim();$('unterzeile').textContent=(n>1?'Foto '+(idx+1)+' von '+n:'')+(n>1&&tx?' · ':'')+tx}
+  function baueScan(){idx=0;$('scanTitel').textContent=titel()||'Unser Sommer 2026';
+    bildzeigen();
+    var a=$('scanAudio');if(st.audio){a.src=st.audio.url;a.hidden=false}else{a.hidden=true;a.removeAttribute('src')}
+    var b=$('zeigeLink');if(st.link){b.hidden=false;b.textContent='Link öffnen ('+host(st.link)+')';$('linkHost').textContent=host(st.link);$('linkGo').href=st.link}else{b.hidden=true}
+    $('scanFoto').hidden=false;$('zwischen').hidden=true}
+  $('vor').addEventListener('click',function(){idx++;bildzeigen()});
+  $('zurueck').addEventListener('click',function(){idx--;bildzeigen()});
+  $('zeigeLink').addEventListener('click',function(){$('scanFoto').hidden=true;$('zwischen').hidden=false});
+  $('zurSeite').addEventListener('click',function(){$('zwischen').hidden=true;$('scanFoto').hidden=false});
+  $('reset').addEventListener('click',function(){st.fotos=[];if(st.audio){URL.revokeObjectURL(st.audio.url)}st.audio=null;st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('audioVor').hidden=true;$('audioVor').removeAttribute('src');$('audioName').textContent='Audio hinzufügen';zeichneFotos();baueListe();geh(1)});
   var hh=location.hash.match(/^#s([123])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1])}
-  var foto=document.getElementById('scanFoto'),zw=document.getElementById('zwischen');
-  document.getElementById('zeigeLink').addEventListener('click',function(){foto.hidden=true;zw.hidden=false});
-  document.getElementById('zurSeite').addEventListener('click',function(){zw.hidden=true;foto.hidden=false});
+  baueListe();zeichneFotos();bildzeigen();
 })();
 </script>
 
