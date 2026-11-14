@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Magnete im Portal</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap">
 <style>
 /* Layout: eine ruhige Lesespalte mit Plan und, mittendrin, ein bedienbares Handy mit den drei Bildschirmen. Farben und Schriften
    sind die von taggylove (Terrakotta, Cremeweiß, Playfair), damit Sina sofort ihr Portal erkennt. */
@@ -106,6 +106,70 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 .fehl{color:#a3361f;font-size:13px;font-weight:700}
 .erfolg{align-items:center;text-align:center;justify-content:center}
 .erfolg .kreis{width:64px;height:64px;border-radius:50%;background:#e4f0e5;color:var(--c-ok);display:flex;align-items:center;justify-content:center}
+/* Startseite emotional + Anlass-Themes */
+.willkommen{padding:0!important;gap:0!important;background:var(--c-bg)}
+.w-kopf{padding:14px 22px 6px;display:flex;justify-content:center}
+.w-kopf img{width:190px;height:auto;display:block}
+.w-held{margin:6px 20px 0;border-radius:22px;overflow:hidden;position:relative;aspect-ratio:4/3.1;background:#ecd9cd}
+.w-held img{width:100%;height:100%;object-fit:cover;display:block}
+.w-text{padding:20px 24px 4px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+.w-text .gruss{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;color:var(--c-text)}
+.w-text .zitat{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:19px;line-height:1.35;color:var(--c-akzent)}
+.w-text .klein2{font-size:11px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--c-leise)}
+.w-text p{font-size:15px;line-height:1.5;color:var(--c-leise);max-width:300px}
+.w-werte{display:flex;justify-content:space-around;gap:6px;padding:16px 16px 4px}
+.w-werte div{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c-leise);width:30%}
+.w-werte svg{color:var(--c-akzent)}
+.w-kacheln{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 20px 0}
+.w-kacheln figure{margin:0;border-radius:16px;overflow:hidden;position:relative;aspect-ratio:1/1.05;background:#ecd9cd}
+.w-kacheln img{width:100%;height:100%;object-fit:cover;display:block}
+.w-kacheln figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(transparent,rgba(46,26,20,.62));color:#fff;font-weight:800;font-size:13.5px}
+.w-schritte{display:flex;flex-direction:row;gap:8px;padding:16px 20px 0}
+.w-schritte li{list-style:none;flex:1;background:var(--c-flaeche);border-radius:14px;padding:12px 10px;text-align:center}
+.w-schritte{margin:0}
+.w-schritte .n{display:flex;margin:0 auto 6px;width:26px;height:26px;border-radius:50%;background:var(--c-weich);color:var(--c-akzent);font-weight:800;font-size:13px;align-items:center;justify-content:center}
+.w-schritte b{display:block;font-size:13px;line-height:1.2}.w-schritte span.t{display:block;font-size:11.5px;color:var(--c-leise);line-height:1.35;margin-top:3px}
+.w-los{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{all:unset;cursor:pointer;box-sizing:border-box;padding:8px 14px;border-radius:999px;background:var(--c-flaeche);border:1.5px solid transparent;font-size:13.5px;font-weight:700;color:var(--c-text);display:flex;align-items:center;gap:7px}
+.chips button i{width:10px;height:10px;border-radius:50%;display:block}
+.chips button[aria-pressed="true"]{border-color:var(--c-akzent);background:var(--c-weich)}
+.chips button:focus-visible{outline:3px solid var(--c-akzent);outline-offset:2px}
+.wahl .chips button{flex-direction:row;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;background:var(--karte);border:1.5px solid var(--linie);color:var(--text);font-family:var(--sans);font-size:13.5px;font-weight:700}
+.wahl .chips button[aria-pressed="true"]{border-color:var(--akzent);background:var(--weich)}
+.wahl .chipkopf{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--leise);padding:6px 4px 0}
+/* Scan-Seite je Anlass: Farben, Foto-Rahmen, Titel */
+.scan[data-anlass]{background:var(--c-bg)}
+.scan[data-anlass="weihnachten"]{--c-bg:#f3eee3;--c-akzent:#2f4a3c;--c-weich:#e1e9df;--c-text:#26372e;--c-leise:#5c6b60;--c-linie:#d7dccf}
+.scan[data-anlass="weihnachten"] .kopfzeile{position:relative;padding-top:18px}
+.scan[data-anlass="weihnachten"] .kopfzeile::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;background:radial-gradient(circle at 9px 4.5px,#b3402d 0 3px,transparent 3.5px),radial-gradient(circle at 27px 4.5px,#d4a64a 0 3px,transparent 3.5px),radial-gradient(circle at 45px 4.5px,#2f4a3c 0 3px,transparent 3.5px);background-size:54px 9px;background-repeat:repeat-x}
+.scan[data-anlass="weihnachten"] .buehne{margin:0 18px;border:7px solid #fff;border-radius:6px}
+.scan[data-anlass="weihnachten"] .bildflaeche{aspect-ratio:1/1}
+.scan[data-anlass="weihnachten"] h4{font-family:'Playfair Display',Georgia,serif!important;font-weight:600!important;color:#2f4a3c}
+.scan[data-anlass="hochzeit"]{--c-bg:#fbf7f0;--c-akzent:#8a6d3b;--c-weich:#f1e8d6;--c-text:#3a3026;--c-leise:#7b6f60;--c-linie:#e6dcc8}
+.scan[data-anlass="hochzeit"] .kopfzeile{justify-content:center}
+.scan[data-anlass="hochzeit"] .buehne{margin:4px 26px 0;padding:9px;border:1px solid #cdb98c}
+.scan[data-anlass="hochzeit"] .bildflaeche{aspect-ratio:4/5}
+.scan[data-anlass="hochzeit"] .text{text-align:center;align-items:center}
+.scan[data-anlass="hochzeit"] h4{font-family:'Playfair Display',Georgia,serif!important;font-style:italic;font-weight:500!important;font-size:30px;color:#3a3026}
+.scan[data-anlass="hochzeit"] .text::after{content:"";width:46px;height:1px;background:#b8975a;margin-top:6px}
+.scan[data-anlass="hochzeit"] .streifen i.an{background:#8a6d3b}
+.scan[data-anlass="urlaub"]{--c-bg:#f5eddc;--c-akzent:#1c7587;--c-weich:#dbeaea;--c-text:#1f3a40;--c-leise:#5b7176;--c-linie:#e0d8c3}
+.scan[data-anlass="urlaub"] .buehne{margin:0}
+.scan[data-anlass="urlaub"] .bildflaeche{aspect-ratio:3/3.4}
+.scan[data-anlass="urlaub"] .buehne::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:var(--c-bg);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 22' preserveAspectRatio='none'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8v10H0z'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 22' preserveAspectRatio='none'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8v10H0z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.scan[data-anlass="urlaub"] h4{text-transform:uppercase;letter-spacing:.04em;font-size:23px}
+.scan[data-anlass="urlaub"] .zaehler{background:#1c7587}
+.scan[data-anlass="freunde"]{--c-bg:#fcebe6;--c-akzent:#c9514b;--c-weich:#f8d6cf;--c-text:#3a1d1a;--c-leise:#80524d;--c-linie:#f1cfc8}
+.scan[data-anlass="freunde"] .buehne{margin:8px 30px 0;border:9px solid #fff;border-bottom-width:30px;transform:rotate(-2.2deg);border-radius:4px}
+.scan[data-anlass="freunde"] .bildflaeche{aspect-ratio:1/1}
+.scan[data-anlass="freunde"] .zaehler{background:#c9514b;transform:rotate(4deg)}
+.scan[data-anlass="freunde"] .streifen{padding-top:18px}
+.scan[data-anlass="freunde"] h4{font-size:28px;display:inline;background:linear-gradient(transparent 60%,#ffd9a0 60%);align-self:flex-start}
+.bild:has(.scan[data-anlass="weihnachten"]:not([hidden])) .leiste{background:#f3eee3}
+.bild:has(.scan[data-anlass="hochzeit"]:not([hidden])) .leiste{background:#fbf7f0}
+.bild:has(.scan[data-anlass="urlaub"]:not([hidden])) .leiste{background:#f5eddc}
+.bild:has(.scan[data-anlass="freunde"]:not([hidden])) .leiste{background:#fcebe6}
 /* Scan-Seite */
 .scan{padding:0!important;gap:0!important}
 .scan .kopfzeile{padding:6px 20px 12px}
@@ -192,6 +256,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
         <button type="button" data-s="2" aria-pressed="false"><b>2 · Magnet befüllen</b><span>Titel, Fotos, Video, Audio oder Link</span></button>
         <button type="button" data-s="3" aria-pressed="false"><b>3 · Beim Scannen</b><span>Was die Familie sieht, wenn sie das Handy ans Magnet hält</span></button>
         <button type="button" data-s="4" aria-pressed="false"><b>4 · Magnet verschenken</b><span>Mit E-Mail, Name und persönlicher Nachricht</span></button>
+        <p class="chipkopf">Aussehen beim Scannen</p><div class="chips" id="chips1" role="group" aria-label="Aussehen wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="true"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div>
         <p class="kleine" style="padding:4px 4px 0">Das Foto auf dem Magneten selbst klebt der Kunde zu Hause auf, das Portal kümmert sich um das, was dahinter liegt.</p>
       </div>
 
@@ -201,14 +266,28 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 
           <!-- 0: Willkommen -->
           <div class="screen inhalt willkommen" data-screen="0" hidden>
-            <div class="kopfzeile"><div class="marke"><img src="img/logo.png" alt="">taggylove</div></div>
-            <div><h4 class="gross">Herzlich willkommen!</h4><p class="unter" style="margin-top:10px;font-size:16px;line-height:1.5;color:var(--c-leise)">Schön, dass du da bist. In drei kleinen Schritten gehört deine Erinnerung zu deinem Magneten.</p></div>
-            <ul class="schritte">
-              <li><span class="n">1</span><span><b>Magnet verbinden</b><span class="t">Halte dein Handy an den Magneten und tippe auf „Verbinden“.</span></span></li>
-              <li><span class="n">2</span><span><b>Befüllen</b><span class="t">Lege Fotos, einen Text, Audio oder einen Link dahinter.</span></span></li>
-              <li><span class="n">3</span><span><b>Anschauen und teilen</b><span class="t">Wer das Handy ans Magnet hält, sieht deine Seite.</span></span></li>
+            <div class="w-kopf"><img src="img/wortmarke.png" alt="taggylove – Mehr als ein Tag"></div>
+            <div class="w-held"><img src="img/magnete-herz.jpg" alt="Herz-Magnete mit Fotos von einem Hund und Babyfüßen"></div>
+            <div class="w-text">
+              <span class="gruss">Herzlich willkommen!</span>
+              <span class="zitat">Besondere Momente für immer festhalten</span>
+              <p>Schön, dass du da bist. Leg Fotos, Stimmen und Geschichten hinter deinen Magneten, und wer ihn scannt, erlebt deinen Moment.</p>
+            </div>
+            <div class="w-werte">
+              <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8c-1.500-3-5-3-5-1s3.500 1 5 1zm0 0c1.500-3 5-3 5-1s-3.500 1-5 1z"/></svg>Personalisiert</div>
+              <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>Mit Liebe gemacht</div>
+              <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14M5 19l7-7"/></svg>Nachhaltiges Naturmaterial</div>
+            </div>
+            <div class="w-kacheln">
+              <figure><img src="img/anhaenger.jpg" alt="Holzanhänger „Unser Weihnachtsfest“"><figcaption>Zu jedem Anlass</figcaption></figure>
+              <figure><img src="img/geschenkbox.jpg" alt="Herz-Magnet in der Geschenkbox"><figcaption>Zum Verschenken</figcaption></figure>
+            </div>
+            <ul class="w-schritte">
+              <li><span class="n">1</span><b>Verbinden</b><span class="t">Handy an den Magneten halten</span></li>
+              <li><span class="n">2</span><b>Befüllen</b><span class="t">Fotos, Text, Audio, Link</span></li>
+              <li><span class="n">3</span><b>Teilen</b><span class="t">Scannen und anschauen</span></li>
             </ul>
-            <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+            <div class="w-los">
               <button class="hbtn haupt" type="button" data-gehe="1">Los geht’s</button>
               <p class="klein" style="text-align:center">Das siehst du nur beim ersten Mal.</p>
             </div>
@@ -234,6 +313,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
           <div class="screen inhalt" data-screen="2" hidden>
             <div class="kopfzeile"><button class="zurueck" type="button" data-gehe="1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg> Meine Magnete</button></div>
             <div><h4 style="font-size:26px">Magnet befüllen</h4><p class="klein" style="margin-top:4px;display:flex;align-items:center;gap:6px"><span class="punkt"></span>Chip ist verbunden</p></div>
+            <div><div class="abschnitt" style="margin-bottom:8px">Anlass</div><div class="chips" id="chips2" role="group" aria-label="Anlass wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="false"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div><p class="klein" style="margin-top:6px">Bestimmt, wie deine Seite beim Scannen aussieht.</p></div>
             <label class="f" for="mt">Titel<input class="t" id="mt" placeholder="z. B. Sommer am Meer" maxlength="60"></label>
             <label class="f" for="mu">Kurzer Text<textarea class="t" id="mu" rows="2" maxlength="300" placeholder="Ein, zwei Sätze zu den Bildern"></textarea></label>
             <div class="seg" role="tablist" aria-label="Was soll dahinter liegen?">
@@ -380,16 +460,16 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 <script>
 (function(){
   var $=function(i){return document.getElementById(i)};
-  var schirme=document.querySelectorAll('.screen'),wahl=document.querySelectorAll('.wahl button');
-  var MAG={1:{titel:'Sommer am Meer',text:'Sand, Wind und Eis. Die schönsten Tage in einem Magneten.',link:'https://example.com/album',linkTitel:'Alle Fotos im Album',
+  var schirme=document.querySelectorAll('.screen'),wahl=document.querySelectorAll('.wahl button[data-s]');
+  var MAG={1:{anlass:'urlaub',titel:'Sommer am Meer',text:'Sand, Wind und Eis. Die schönsten Tage in einem Magneten.',link:'https://example.com/album',linkTitel:'Alle Fotos im Album',
       fotos:['img/ostsee-2.jpg','img/ostsee-1.jpg','img/strand-abend.jpg','img/josie.jpg']},
-    2:{titel:'Gruß von Oma und Opa',text:'Ein kleiner Gruß zum Anhören.',link:'',fotos:[],audio:{url:'img/gruss.m4a'},hg:'tanne'}};
-  var st={fotos:[],audio:null,link:'',hg:'terra'},idx=0,aktuell=3,verschenkt={},gwahl=1,gAn='';
+    2:{anlass:'familie',titel:'Gruß von Oma und Opa',text:'Ein kleiner Gruß zum Anhören.',link:'',fotos:[],audio:{url:'img/gruss.m4a'},hg:'tanne'}};
+  var st={fotos:[],audio:null,link:'',hg:'tanne',anlass:'weihnachten'},idx=0,aktuell=3,verschenkt={},gwahl=1,gAn='';
   var HG=['terra','creme','tanne','nacht','rose','sand'];
   function eigenes(){return !!($('mt').value.trim()||$('mu').value.trim()||st.fotos.length||st.audio||st.link)}
   var ICON_PLUS='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
   function host(u){try{var x=new URL(u);return x.protocol==='https:'?x.hostname:''}catch(e){return ''}}
-  function geh(n){$('scanAudio').pause();if(String(n)==='2')aktuell=3;if(String(n)==='4')gStart();schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();if(String(n)==='1')baueListe();if(String(n)==='2')zeichneFotos()}
+  function geh(n){$('scanAudio').pause();if(String(n)==='2')aktuell=3;if(String(n)==='4')gStart();schirme.forEach(function(s){s.hidden=s.getAttribute('data-screen')!==String(n)});wahl.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-s')===String(n)?'true':'false')});if(String(n)==='3')baueScan();chipsZeigen();if(String(n)==='1')baueListe();if(String(n)==='2')zeichneFotos()}
   wahl.forEach(function(b){b.addEventListener('click',function(){var n=b.getAttribute('data-s');geh(n);if(n==='3'){aktuell=eigenes()?3:1;baueScan()}})});
   document.querySelectorAll('[data-gehe]').forEach(function(b){b.addEventListener('click',function(){var m=b.getAttribute('data-magnet');geh(b.getAttribute('data-gehe'));if(m&&b.getAttribute('data-gehe')==='3'){aktuell=+m;baueScan()}})});
   var reiter=document.querySelectorAll('.seg button:not([disabled])'),paneele=document.querySelectorAll('[data-panel]');
@@ -450,6 +530,15 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   $('gAbbruch').addEventListener('click',function(){gZeige('gForm')});
   $('gSenden').addEventListener('click',function(){verschenkt[gwahl]=true;$('gOkU').textContent=$('gName').value.trim()+' bekommt eine Mail an '+gAn+' mit dem Anmeldelink'+($('gText').value.trim()?' und deiner Nachricht.':'.');gZeige('gOk')});
   $('gFertig').addEventListener('click',function(){$('gMail').value='';$('gName').value='';$('gText').value='';$('gZahl').textContent='0 / 500';geh(1)});
+  // ---- Anlass: bestimmt Farben und Aufbau der Scan-Seite
+  var HGMAP={familie:'terra',weihnachten:'tanne',hochzeit:'creme',urlaub:'sand',freunde:'rose'};
+  function anlassVon(m){return m===3?st.anlass:MAG[m].anlass}
+  function chipsZeigen(){var a=anlassVon(aktuell);document.querySelectorAll('#chips1 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===a?'true':'false')});
+    document.querySelectorAll('#chips2 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===st.anlass?'true':'false')})}
+  function anlassSetzen(k,fuer){var ziel=fuer;if(ziel===3){st.anlass=k;if(!st.fotos.length)st.hg=HGMAP[k]}else{MAG[ziel].anlass=k;if(!MAG[ziel].fotos.length)MAG[ziel].hg=HGMAP[k]}
+    chipsZeigen();if(!$('scanFoto').closest('.screen').hidden)baueScan()}
+  document.querySelectorAll('#chips1 button').forEach(function(b){b.addEventListener('click',function(){anlassSetzen(b.dataset.anlass,aktuell)})});
+  document.querySelectorAll('#chips2 button').forEach(function(b){b.addEventListener('click',function(){anlassSetzen(b.dataset.anlass,3)})});
   function daten(){if(aktuell!==3)return MAG[aktuell];return {titel:$('mt').value.trim()||'Dein Titel',text:$('mu').value.trim()||'Hier erscheint dein Text.',fotos:st.fotos,link:st.link,linkTitel:$('mlt').value.trim()||'Mehr ansehen',audio:st.audio,hg:st.hg}}
   function baueListe(){document.querySelectorAll('.zeile[data-magnet]').forEach(function(z){z.hidden=!!verschenkt[z.getAttribute('data-magnet')]});var t=$('mt').value.trim(),n=st.fotos.length,teile=[];
     $('m3t').textContent='Magnet 3';
@@ -466,7 +555,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
     $('zaehler').hidden=n<2;$('zaehler').textContent=(idx+1)+' / '+n;
     var p=$('punkte');p.innerHTML='';if(n>1)for(var k=0;k<n;k++){var i=document.createElement('i');if(k===idx)i.className='an';p.appendChild(i)}
     $('vor').hidden=$('zurueck').hidden=n<2}
-  function baueScan(){var d=daten();idx=0;$('scanTitel').textContent=d.titel;$('unterzeile').textContent=d.text;bildzeigen();
+  function baueScan(){var d=daten();idx=0;$('scanFoto').closest('.screen').setAttribute('data-anlass',anlassVon(aktuell));chipsZeigen();$('scanTitel').textContent=d.titel;$('unterzeile').textContent=d.text;bildzeigen();
     var a=$('scanAudio');a.pause();if(d.audio){a.src=d.audio.url}else{a.removeAttribute('src')}
     var nurTon=d.audio&&!d.fotos.length;$('tipp').hidden=!nurTon;$('hoeren').hidden=!d.audio||nurTon;tonAnzeige();
     var b=$('zeigeLink');if(d.link){b.hidden=false;$('linkTitel').textContent=d.linkTitel;$('linkSub').textContent=host(d.link);$('linkHost').textContent=host(d.link);$('linkGo').href=d.link}else{b.hidden=true}
@@ -485,7 +574,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   $('buehne').addEventListener('pointerup',function(e){if(x0===null)return;var d=e.clientX-x0;x0=null;if(Math.abs(d)>40){idx+=d<0?1:-1;bildzeigen()}});
   $('zeigeLink').addEventListener('click',function(){$('scanFoto').hidden=true;$('zwischen').hidden=false});
   $('zurSeite').addEventListener('click',function(){$('zwischen').hidden=true;$('scanFoto').hidden=false});
-  $('reset').addEventListener('click',function(){verschenkt={};tonSetzen(null);st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('mlt').value='';$('aufnTitel').textContent='Jetzt aufnehmen';zeichneFotos();baueListe();geh(1)});
+  $('reset').addEventListener('click',function(){verschenkt={};st.anlass='weihnachten';st.hg='tanne';MAG[1].anlass='urlaub';MAG[2].anlass='familie';tonSetzen(null);st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('mlt').value='';$('aufnTitel').textContent='Jetzt aufnehmen';zeichneFotos();baueListe();geh(1)});
   var hh=location.hash.match(/^#s([0-4])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1]);if(hh[1]==='3'){aktuell=1;baueScan()}}else{geh(0)}
 })();
 </script>
