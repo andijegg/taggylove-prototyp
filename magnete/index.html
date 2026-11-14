@@ -286,7 +286,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
         <button type="button" data-s="2" aria-pressed="false"><b>2 · Magnet befüllen</b><span>Titel, Fotos, Video, Audio oder Link</span></button>
         <button type="button" data-s="3" aria-pressed="false"><b>3 · Beim Scannen</b><span>Was die Familie sieht, wenn sie das Handy ans Magnet hält</span></button>
         <button type="button" data-s="4" aria-pressed="false"><b>4 · Magnet verschenken</b><span>Mit E-Mail, Name und persönlicher Nachricht</span></button>
-        <p class="chipkopf">Thema umschalten (alle Bildschirme)</p><div class="chips" id="chips1" role="group" aria-label="Aussehen wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="true"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div>
+        <p class="chipkopf">Thema der Seite beim Scannen</p><div class="chips" id="chips1" role="group" aria-label="Aussehen wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="true"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div>
         <p class="kleine" style="padding:4px 4px 0">Das Foto auf dem Magneten selbst klebt der Kunde zu Hause auf, das Portal kümmert sich um das, was dahinter liegt.</p>
       </div>
 
@@ -300,6 +300,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
             <div class="w-kopf"><img src="img/wortmarke.png" alt="taggylove – Mehr als ein Tag"></div>
             <div class="w-held"><img id="wHeld" src="img/magnete-herz.jpg" alt="Herz-Magnete mit Fotos von einem Hund und Babyfüßen"></div>
             <div class="w-text">
+              <span class="klein2">taggylove Momente</span>
               <span class="gruss">Herzlich willkommen!</span>
               <span class="zitat" id="wZitat">Besondere Momente für immer festhalten</span>
               
@@ -567,21 +568,21 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
       m1:{titel:'Wochenende am See',text:'Lagerfeuer, Lachen und viel zu wenig Schlaf.',fotos:['img/foto-freunde.jpg','img/held-freunde.jpg'],linkTitel:'Alle Bilder vom Wochenende'}}};
   var BILD=document.querySelector('.bild'),SCAN=$('scanFoto').closest('.screen');
   function anlassVon(m){return m===3?st.anlass:MAG[m].anlass}
-  function anzeigen(){BILD.setAttribute('data-thema',SCAN.hidden?thema:anlassVon(aktuell));
+  function anzeigen(){BILD.setAttribute('data-thema',SCAN.hidden?'familie':anlassVon(aktuell));
     document.querySelectorAll('#chips1 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===thema?'true':'false')});
     document.querySelectorAll('#chips2 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===st.anlass?'true':'false')})}
   function chipsZeigen(){anzeigen()}
   function themaSetzen(k){thema=k;var T=THEMA[k],m=T.m1,n=m.fotos.length;
     MAG[1].anlass=k;MAG[1].titel=m.titel;MAG[1].text=m.text;MAG[1].fotos=m.fotos.slice();MAG[1].linkTitel=m.linkTitel;
     MAG[2].anlass=k;MAG[2].hg=HGMAP[k];st.anlass=k;if(!st.fotos.length)st.hg=HGMAP[k];
-    $('wHeld').src=T.held;$('wZitat').textContent=T.zitat;GNAME[1]=m.titel;
+    GNAME[1]=m.titel;
     var z=document.querySelector('.zeile[data-magnet="1"]');z.querySelector('b').textContent=m.titel;z.querySelector('.daum').style.backgroundImage='url("'+m.fotos[0]+'")';
     z.querySelector('small').innerHTML='<span class="punkt"></span>Verbunden · '+n+(n===1?' Foto':' Fotos')+' · Link';
     var w=document.querySelector('.wahlzeile[data-g="1"]');w.querySelector('b').textContent=m.titel;w.querySelector('.daum').style.backgroundImage='url("'+m.fotos[0]+'")';
     document.querySelectorAll('.zeile[data-magnet="2"] .daum,.wahlzeile[data-g="2"] .daum').forEach(function(d){d.className='daum hg hg-'+HGMAP[k];d.style.color=(k==='hochzeit'||k==='urlaub'||k==='freunde')?'#2e1a14':'#fff'});
     [].forEach.call($('hgwahl').children,function(x){x.setAttribute('aria-pressed',x.className.indexOf('hg-'+st.hg)>=0?'true':'false')});
     if(!SCAN.hidden)baueScan();else anzeigen()}
-  document.querySelectorAll('#chips1 button').forEach(function(b){b.addEventListener('click',function(){themaSetzen(b.dataset.anlass)})});
+  document.querySelectorAll('#chips1 button').forEach(function(b){b.addEventListener('click',function(){themaSetzen(b.dataset.anlass);if(SCAN.hidden){geh(3);aktuell=1;baueScan()}})});
   document.querySelectorAll('#chips2 button').forEach(function(b){b.addEventListener('click',function(){st.anlass=b.dataset.anlass;if(!st.fotos.length)st.hg=HGMAP[st.anlass];
     [].forEach.call($('hgwahl').children,function(x){x.setAttribute('aria-pressed',x.className.indexOf('hg-'+st.hg)>=0?'true':'false')});anzeigen()})});
   function daten(){if(aktuell!==3)return MAG[aktuell];return {titel:$('mt').value.trim()||'Dein Titel',text:$('mu').value.trim()||'Hier erscheint dein Text.',fotos:st.fotos,link:st.link,linkTitel:$('mlt').value.trim()||'Mehr ansehen',audio:st.audio,hg:st.hg}}
