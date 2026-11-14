@@ -138,38 +138,6 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 .wahl .chips button{flex-direction:row;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;background:var(--karte);border:1.5px solid var(--linie);color:var(--text);font-family:var(--sans);font-size:13.5px;font-weight:700}
 .wahl .chips button[aria-pressed="true"]{border-color:var(--akzent);background:var(--weich)}
 .wahl .chipkopf{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--leise);padding:6px 4px 0}
-/* Scan-Seite je Anlass: Farben, Foto-Rahmen, Titel */
-.scan[data-anlass]{background:var(--c-bg)}
-.scan[data-anlass="weihnachten"]{--c-bg:#f3eee3;--c-akzent:#2f4a3c;--c-weich:#e1e9df;--c-text:#26372e;--c-leise:#5c6b60;--c-linie:#d7dccf}
-.scan[data-anlass="weihnachten"] .kopfzeile{position:relative;padding-top:18px}
-.scan[data-anlass="weihnachten"] .kopfzeile::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;background:radial-gradient(circle at 9px 4.5px,#b3402d 0 3px,transparent 3.5px),radial-gradient(circle at 27px 4.5px,#d4a64a 0 3px,transparent 3.5px),radial-gradient(circle at 45px 4.5px,#2f4a3c 0 3px,transparent 3.5px);background-size:54px 9px;background-repeat:repeat-x}
-.scan[data-anlass="weihnachten"] .buehne{margin:0 18px;border:7px solid #fff;border-radius:6px}
-.scan[data-anlass="weihnachten"] .bildflaeche{aspect-ratio:1/1}
-.scan[data-anlass="weihnachten"] h4{font-family:'Playfair Display',Georgia,serif!important;font-weight:600!important;color:#2f4a3c}
-.scan[data-anlass="hochzeit"]{--c-bg:#fbf7f0;--c-akzent:#8a6d3b;--c-weich:#f1e8d6;--c-text:#3a3026;--c-leise:#7b6f60;--c-linie:#e6dcc8}
-.scan[data-anlass="hochzeit"] .kopfzeile{justify-content:center}
-.scan[data-anlass="hochzeit"] .buehne{margin:4px 26px 0;padding:9px;border:1px solid #cdb98c}
-.scan[data-anlass="hochzeit"] .bildflaeche{aspect-ratio:4/5}
-.scan[data-anlass="hochzeit"] .text{text-align:center;align-items:center}
-.scan[data-anlass="hochzeit"] h4{font-family:'Playfair Display',Georgia,serif!important;font-style:italic;font-weight:500!important;font-size:30px;color:#3a3026}
-.scan[data-anlass="hochzeit"] .text::after{content:"";width:46px;height:1px;background:#b8975a;margin-top:6px}
-.scan[data-anlass="hochzeit"] .streifen i.an{background:#8a6d3b}
-.scan[data-anlass="urlaub"]{--c-bg:#f5eddc;--c-akzent:#1c7587;--c-weich:#dbeaea;--c-text:#1f3a40;--c-leise:#5b7176;--c-linie:#e0d8c3}
-.scan[data-anlass="urlaub"] .buehne{margin:0}
-.scan[data-anlass="urlaub"] .bildflaeche{aspect-ratio:3/3.4}
-.scan[data-anlass="urlaub"] .buehne::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:var(--c-bg);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 22' preserveAspectRatio='none'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8v10H0z'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 22' preserveAspectRatio='none'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8v10H0z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
-.scan[data-anlass="urlaub"] h4{text-transform:uppercase;letter-spacing:.04em;font-size:23px}
-.scan[data-anlass="urlaub"] .zaehler{background:#1c7587}
-.scan[data-anlass="freunde"]{--c-bg:#fcebe6;--c-akzent:#c9514b;--c-weich:#f8d6cf;--c-text:#3a1d1a;--c-leise:#80524d;--c-linie:#f1cfc8}
-.scan[data-anlass="freunde"] .buehne{margin:8px 30px 0;border:9px solid #fff;border-bottom-width:30px;transform:rotate(-2.2deg);border-radius:4px}
-.scan[data-anlass="freunde"] .bildflaeche{aspect-ratio:1/1}
-.scan[data-anlass="freunde"] .zaehler{background:#c9514b;transform:rotate(4deg)}
-.scan[data-anlass="freunde"] .streifen{padding-top:18px}
-.scan[data-anlass="freunde"] h4{font-size:28px;display:inline;background:linear-gradient(transparent 60%,#ffd9a0 60%);align-self:flex-start}
-.bild:has(.scan[data-anlass="weihnachten"]:not([hidden])) .leiste{background:#f3eee3}
-.bild:has(.scan[data-anlass="hochzeit"]:not([hidden])) .leiste{background:#fbf7f0}
-.bild:has(.scan[data-anlass="urlaub"]:not([hidden])) .leiste{background:#f5eddc}
-.bild:has(.scan[data-anlass="freunde"]:not([hidden])) .leiste{background:#fcebe6}
 /* Scan-Seite */
 .scan{padding:0!important;gap:0!important}
 .scan .kopfzeile{padding:6px 20px 12px}
@@ -225,6 +193,62 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   .screen[hidden]{display:block!important}.proto{grid-template-columns:repeat(3,1fr);gap:10px}.handy{max-width:100%}
   main{gap:22px}.karte,.handy{break-inside:avoid}
 }
+
+/* ================= Themen: ein Schalter, alle Bildschirme. Jedes Thema bringt Farben, Schmuckleiste, Überschriften-Schrift
+   und ein eigenes Layout der Seite, die beim Scannen aufgeht. ================= */
+.bild[data-thema="familie"]{--c-bg:#f7f2ee;--c-akzent:#9e5444;--c-weich:#f3e4dc;--c-text:#2e1a14;--c-leise:#7a6359;--c-linie:#e9ddd5}
+.bild[data-thema="weihnachten"]{--c-bg:#f4efe4;--c-akzent:#2f4a3c;--c-weich:#e0e8dc;--c-text:#24352c;--c-leise:#5d6b60;--c-linie:#d9dccf}
+.bild[data-thema="hochzeit"]{--c-bg:#fbf7f0;--c-akzent:#8a6d3b;--c-weich:#f1e8d6;--c-text:#3a3026;--c-leise:#7b6f60;--c-linie:#e6dcc8}
+.bild[data-thema="urlaub"]{--c-bg:#f6eedd;--c-akzent:#1c7587;--c-weich:#d9eaea;--c-text:#1f3a40;--c-leise:#5b7176;--c-linie:#e2d9c3}
+.bild[data-thema="freunde"]{--c-bg:#fdece7;--c-akzent:#b8443f;--c-weich:#f9d6cf;--c-text:#3a1d1a;--c-leise:#80524d;--c-linie:#f2cfc8}
+.bild[data-thema] .willkommen{background:var(--c-bg)}
+.deko{flex:none;height:0;position:relative}
+.bild[data-thema="weihnachten"] .deko{height:11px;margin-top:4px;background:radial-gradient(circle at 9px 5.5px,#b3402d 0 3.2px,transparent 3.7px),radial-gradient(circle at 27px 5.5px,#d4a64a 0 3.2px,transparent 3.7px),radial-gradient(circle at 45px 5.5px,#2f4a3c 0 3.2px,transparent 3.7px),linear-gradient(#c9c2ae,#c9c2ae) 0 5px/100% 1px no-repeat;background-size:54px 11px,54px 11px,54px 11px,100% 1px;background-repeat:repeat-x,repeat-x,repeat-x,no-repeat}
+.bild[data-thema="hochzeit"] .deko{height:16px;background:linear-gradient(#c9ae74,#c9ae74) center/56% 1px no-repeat}
+.bild[data-thema="hochzeit"] .deko::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:#c9ae74;transform:translate(-50%,-50%) rotate(45deg);outline:4px solid var(--c-bg)}
+.bild[data-thema="urlaub"] .deko{height:12px;margin-top:4px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 6c5 0 5-4 10-4s5 4 10 4 5-4 10-4 5 4 10 4' fill='none' stroke='%231c7587' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/40px 10px repeat-x}
+.bild[data-thema="freunde"] .deko{height:14px;margin-top:2px;background:radial-gradient(circle at 8px 5px,#b8443f 0 3px,transparent 3.5px),radial-gradient(circle at 26px 10px,#f2b84b 0 2.5px,transparent 3px),radial-gradient(circle at 44px 4px,#e98fa2 0 3.5px,transparent 4px),radial-gradient(circle at 60px 9px,#b8443f 0 2px,transparent 2.5px);background-size:70px 14px;background-repeat:repeat-x}
+.bild[data-thema="weihnachten"] h4,.bild[data-thema="weihnachten"] .zeile b{font-family:'Playfair Display',Georgia,serif!important;font-weight:600!important;letter-spacing:0}
+.bild[data-thema="hochzeit"] h4,.bild[data-thema="hochzeit"] .w-text .gruss{font-family:'Playfair Display',Georgia,serif!important;font-style:italic;font-weight:500!important;letter-spacing:0}
+.bild[data-thema="urlaub"] h4,.bild[data-thema="urlaub"] .w-text .gruss{font-family:var(--sans)!important;text-transform:uppercase;letter-spacing:.04em;font-weight:800!important}
+.bild[data-thema="urlaub"] .w-text .gruss{font-size:25px}
+.bild[data-thema="freunde"] h4,.bild[data-thema="freunde"] .w-text .gruss{font-family:var(--sans)!important;font-weight:900!important;letter-spacing:-.02em}
+.bild[data-thema="freunde"] .hbtn,.bild[data-thema="freunde"] .zeile,.bild[data-thema="freunde"] .w-held{border-radius:22px}
+.bild[data-thema="hochzeit"] .hbtn{border-radius:4px;letter-spacing:.06em;text-transform:uppercase;font-size:13.5px}
+.bild[data-thema="hochzeit"] .zeile,.bild[data-thema="hochzeit"] .w-held,.bild[data-thema="hochzeit"] .w-kacheln figure,.bild[data-thema="hochzeit"] .w-schritte li{border-radius:6px}
+.bild[data-thema="hochzeit"] .w-held{outline:1px solid #cdb98c;outline-offset:5px}
+.bild[data-thema="weihnachten"] .w-held{border:6px solid #fff;border-radius:10px}
+.bild[data-thema="urlaub"] .w-held{margin:6px 0 0;border-radius:0}
+.bild[data-thema="freunde"] .w-held{transform:rotate(-1.5deg);border:7px solid #fff}
+.ueber{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--c-akzent)}
+/* --- Scan-Seite je Thema --- */
+.bild[data-thema="familie"] .scan .buehne{margin:0 18px;border-radius:22px;overflow:hidden}
+.bild[data-thema="familie"] .scan .bildflaeche{aspect-ratio:4/5}
+.bild[data-thema="familie"] .scan .ueber::before{content:"♥  "}
+.bild[data-thema="weihnachten"] .scan .buehne{margin:4px 22px 0;border:8px solid #fff;border-radius:4px}
+.bild[data-thema="weihnachten"] .scan .bildflaeche{aspect-ratio:1/1}
+.bild[data-thema="weihnachten"] .scan .text{text-align:center;align-items:center}
+.bild[data-thema="weihnachten"] .scan .ueber{color:#b3402d}
+.bild[data-thema="weihnachten"] .scan h4{color:#2f4a3c;font-size:28px}
+.bild[data-thema="weihnachten"] .scan .text::after{content:"✦   ✦   ✦";color:#d4a64a;font-size:12px;margin-top:2px}
+.bild[data-thema="hochzeit"] .scan .kopfzeile{justify-content:center}
+.bild[data-thema="hochzeit"] .scan .buehne{margin:6px 40px 0;padding:8px;border:1px solid #cdb98c;border-radius:999px 999px 8px 8px}
+.bild[data-thema="hochzeit"] .scan .bildflaeche{aspect-ratio:3/4;border-radius:999px 999px 3px 3px}
+.bild[data-thema="hochzeit"] .scan .zaehler{top:auto;bottom:20px;right:50%;transform:translateX(50%);background:rgba(58,48,38,.6)}
+.bild[data-thema="hochzeit"] .scan .text{text-align:center;align-items:center}
+.bild[data-thema="hochzeit"] .scan h4{font-size:31px}
+.bild[data-thema="hochzeit"] .scan .text::after{content:"";width:46px;height:1px;background:#b8975a;margin-top:6px}
+.bild[data-thema="urlaub"] .scan .buehne{margin:0}
+.bild[data-thema="urlaub"] .scan .bildflaeche{aspect-ratio:3/3.3}
+.bild[data-thema="urlaub"] .scan .buehne::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:var(--c-bg);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 22' preserveAspectRatio='none'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8v10H0z'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 22' preserveAspectRatio='none'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8v10H0z'/%3E%3C/svg%3E") center/100% 100% no-repeat;pointer-events:none}
+.bild[data-thema="urlaub"] .scan .ueber{align-self:flex-start;border:1.5px dashed var(--c-akzent);padding:4px 10px;border-radius:4px;transform:rotate(-3deg);margin-bottom:4px}
+.bild[data-thema="urlaub"] .scan h4{font-size:23px}
+.bild[data-thema="freunde"] .scan .buehne{margin:14px 32px 0;border:9px solid #fff;border-bottom-width:32px;transform:rotate(-2.2deg);border-radius:3px}
+.bild[data-thema="freunde"] .scan .buehne::before{content:"";position:absolute;top:-22px;left:50%;width:86px;height:24px;background:rgba(242,184,75,.8);transform:translateX(-50%) rotate(3deg);z-index:3}
+.bild[data-thema="freunde"] .scan .bildflaeche{aspect-ratio:1/1}
+.bild[data-thema="freunde"] .scan .zaehler{background:#b8443f;transform:rotate(4deg)}
+.bild[data-thema="freunde"] .scan .streifen{padding-top:20px}
+.bild[data-thema="freunde"] .scan h4{font-size:28px;display:inline;background:linear-gradient(transparent 60%,#ffd9a0 60%);align-self:flex-start}
 </style>
 </head><body>
 
@@ -256,21 +280,22 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
         <button type="button" data-s="2" aria-pressed="false"><b>2 · Magnet befüllen</b><span>Titel, Fotos, Video, Audio oder Link</span></button>
         <button type="button" data-s="3" aria-pressed="false"><b>3 · Beim Scannen</b><span>Was die Familie sieht, wenn sie das Handy ans Magnet hält</span></button>
         <button type="button" data-s="4" aria-pressed="false"><b>4 · Magnet verschenken</b><span>Mit E-Mail, Name und persönlicher Nachricht</span></button>
-        <p class="chipkopf">Aussehen beim Scannen</p><div class="chips" id="chips1" role="group" aria-label="Aussehen wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="true"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div>
+        <p class="chipkopf">Thema umschalten (alle Bildschirme)</p><div class="chips" id="chips1" role="group" aria-label="Aussehen wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="true"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div>
         <p class="kleine" style="padding:4px 4px 0">Das Foto auf dem Magneten selbst klebt der Kunde zu Hause auf, das Portal kümmert sich um das, was dahinter liegt.</p>
       </div>
 
       <div class="handy">
         <div class="bild">
           <div class="leiste"><span>9:41</span><span></span></div>
+          <div class="deko" aria-hidden="true"></div>
 
           <!-- 0: Willkommen -->
           <div class="screen inhalt willkommen" data-screen="0" hidden>
             <div class="w-kopf"><img src="img/wortmarke.png" alt="taggylove – Mehr als ein Tag"></div>
-            <div class="w-held"><img src="img/magnete-herz.jpg" alt="Herz-Magnete mit Fotos von einem Hund und Babyfüßen"></div>
+            <div class="w-held"><img id="wHeld" src="img/magnete-herz.jpg" alt="Herz-Magnete mit Fotos von einem Hund und Babyfüßen"></div>
             <div class="w-text">
               <span class="gruss">Herzlich willkommen!</span>
-              <span class="zitat">Besondere Momente für immer festhalten</span>
+              <span class="zitat" id="wZitat">Besondere Momente für immer festhalten</span>
               <p>Schön, dass du da bist. Leg Fotos, Stimmen und Geschichten hinter deinen Magneten, und wer ihn scannt, erlebt deinen Moment.</p>
             </div>
             <div class="w-werte">
@@ -361,7 +386,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
                 <button class="pfeil r" type="button" id="vor" aria-label="Nächstes Foto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
               </div>
               <div class="streifen" id="punkte" aria-hidden="true"></div>
-              <div class="text"><h4 id="scanTitel"></h4><p class="unter" id="unterzeile"></p></div>
+              <div class="text"><span class="ueber" id="scanUeber"></span><h4 id="scanTitel"></h4><p class="unter" id="unterzeile"></p></div>
               <div class="aktionen">
                 <audio id="scanAudio" preload="metadata" hidden></audio>
                 <button class="hoeren" type="button" id="hoeren" hidden><span class="kreis"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span><b id="hoerenText">Aufnahme anhören</b><small id="hoerenZeit"></small></span></button>
@@ -530,15 +555,38 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   $('gAbbruch').addEventListener('click',function(){gZeige('gForm')});
   $('gSenden').addEventListener('click',function(){verschenkt[gwahl]=true;$('gOkU').textContent=$('gName').value.trim()+' bekommt eine Mail an '+gAn+' mit dem Anmeldelink'+($('gText').value.trim()?' und deiner Nachricht.':'.');gZeige('gOk')});
   $('gFertig').addEventListener('click',function(){$('gMail').value='';$('gName').value='';$('gText').value='';$('gZahl').textContent='0 / 500';geh(1)});
-  // ---- Anlass: bestimmt Farben und Aufbau der Scan-Seite
-  var HGMAP={familie:'terra',weihnachten:'tanne',hochzeit:'creme',urlaub:'sand',freunde:'rose'};
+  // ---- Themen: ein Schalter für alle Bildschirme; je Magnet kann der Kunde beim Befüllen einen eigenen Anlass wählen
+  var HGMAP={familie:'terra',weihnachten:'tanne',hochzeit:'creme',urlaub:'sand',freunde:'rose'},thema='weihnachten';
+  var THEMA={
+    weihnachten:{held:'img/held-weihnachten.jpg',zitat:'Die schönste Zeit des Jahres für immer festhalten',ueber:'Frohe Weihnachten',
+      m1:{titel:'Weihnachten 2026',text:'Plätzchen, Lichter und ganz viel Zeit füreinander.',fotos:['img/foto-weihnachten.jpg','img/held-weihnachten.jpg'],linkTitel:'Alle Fotos vom Fest'}},
+    familie:{held:'img/magnete-herz.jpg',zitat:'Besondere Momente für immer festhalten',ueber:'Familienmoment',
+      m1:{titel:'Unser Jahr',text:'Kleine Momente, die bleiben.',fotos:['img/josie.jpg','img/ostsee-2.jpg','img/strand-abend.jpg'],linkTitel:'Zum Familienalbum'}},
+    hochzeit:{held:'img/held-hochzeit.jpg',zitat:'Euer schönster Tag, immer wieder zum Erleben',ueber:'Für immer',
+      m1:{titel:'Unsere Hochzeit',text:'Der schönste Tag, zum Immer-wieder-Ansehen.',fotos:['img/foto-hochzeit.jpg','img/held-hochzeit.jpg'],linkTitel:'Zur Hochzeitsgalerie'}},
+    urlaub:{held:'img/held-urlaub.jpg',zitat:'Fernweh zum Anfassen und Immer-wieder-Ansehen',ueber:'Urlaubsgrüße',
+      m1:{titel:'Sommer am Meer',text:'Sand, Wind und Eis. Die schönsten Tage in einem Magneten.',fotos:['img/ostsee-2.jpg','img/ostsee-1.jpg','img/strand-abend.jpg'],linkTitel:'Alle Fotos im Album'}},
+    freunde:{held:'img/held-freunde.jpg',zitat:'Die besten Momente mit den besten Menschen',ueber:'Beste Zeit',
+      m1:{titel:'Wochenende am See',text:'Lagerfeuer, Lachen und viel zu wenig Schlaf.',fotos:['img/foto-freunde.jpg','img/held-freunde.jpg'],linkTitel:'Alle Bilder vom Wochenende'}}};
+  var BILD=document.querySelector('.bild'),SCAN=$('scanFoto').closest('.screen');
   function anlassVon(m){return m===3?st.anlass:MAG[m].anlass}
-  function chipsZeigen(){var a=anlassVon(aktuell);document.querySelectorAll('#chips1 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===a?'true':'false')});
+  function anzeigen(){BILD.setAttribute('data-thema',SCAN.hidden?thema:anlassVon(aktuell));
+    document.querySelectorAll('#chips1 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===thema?'true':'false')});
     document.querySelectorAll('#chips2 button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.anlass===st.anlass?'true':'false')})}
-  function anlassSetzen(k,fuer){var ziel=fuer;if(ziel===3){st.anlass=k;if(!st.fotos.length)st.hg=HGMAP[k]}else{MAG[ziel].anlass=k;if(!MAG[ziel].fotos.length)MAG[ziel].hg=HGMAP[k]}
-    chipsZeigen();if(!$('scanFoto').closest('.screen').hidden)baueScan()}
-  document.querySelectorAll('#chips1 button').forEach(function(b){b.addEventListener('click',function(){anlassSetzen(b.dataset.anlass,aktuell)})});
-  document.querySelectorAll('#chips2 button').forEach(function(b){b.addEventListener('click',function(){anlassSetzen(b.dataset.anlass,3)})});
+  function chipsZeigen(){anzeigen()}
+  function themaSetzen(k){thema=k;var T=THEMA[k],m=T.m1,n=m.fotos.length;
+    MAG[1].anlass=k;MAG[1].titel=m.titel;MAG[1].text=m.text;MAG[1].fotos=m.fotos.slice();MAG[1].linkTitel=m.linkTitel;
+    MAG[2].anlass=k;MAG[2].hg=HGMAP[k];st.anlass=k;if(!st.fotos.length)st.hg=HGMAP[k];
+    $('wHeld').src=T.held;$('wZitat').textContent=T.zitat;GNAME[1]=m.titel;
+    var z=document.querySelector('.zeile[data-magnet="1"]');z.querySelector('b').textContent=m.titel;z.querySelector('.daum').style.backgroundImage='url("'+m.fotos[0]+'")';
+    z.querySelector('small').innerHTML='<span class="punkt"></span>Verbunden · '+n+(n===1?' Foto':' Fotos')+' · Link';
+    var w=document.querySelector('.wahlzeile[data-g="1"]');w.querySelector('b').textContent=m.titel;w.querySelector('.daum').style.backgroundImage='url("'+m.fotos[0]+'")';
+    document.querySelectorAll('.zeile[data-magnet="2"] .daum,.wahlzeile[data-g="2"] .daum').forEach(function(d){d.className='daum hg hg-'+HGMAP[k];d.style.color=(k==='hochzeit'||k==='urlaub'||k==='freunde')?'#2e1a14':'#fff'});
+    [].forEach.call($('hgwahl').children,function(x){x.setAttribute('aria-pressed',x.className.indexOf('hg-'+st.hg)>=0?'true':'false')});
+    if(!SCAN.hidden)baueScan();else anzeigen()}
+  document.querySelectorAll('#chips1 button').forEach(function(b){b.addEventListener('click',function(){themaSetzen(b.dataset.anlass)})});
+  document.querySelectorAll('#chips2 button').forEach(function(b){b.addEventListener('click',function(){st.anlass=b.dataset.anlass;if(!st.fotos.length)st.hg=HGMAP[st.anlass];
+    [].forEach.call($('hgwahl').children,function(x){x.setAttribute('aria-pressed',x.className.indexOf('hg-'+st.hg)>=0?'true':'false')});anzeigen()})});
   function daten(){if(aktuell!==3)return MAG[aktuell];return {titel:$('mt').value.trim()||'Dein Titel',text:$('mu').value.trim()||'Hier erscheint dein Text.',fotos:st.fotos,link:st.link,linkTitel:$('mlt').value.trim()||'Mehr ansehen',audio:st.audio,hg:st.hg}}
   function baueListe(){document.querySelectorAll('.zeile[data-magnet]').forEach(function(z){z.hidden=!!verschenkt[z.getAttribute('data-magnet')]});var t=$('mt').value.trim(),n=st.fotos.length,teile=[];
     $('m3t').textContent='Magnet 3';
@@ -555,7 +603,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
     $('zaehler').hidden=n<2;$('zaehler').textContent=(idx+1)+' / '+n;
     var p=$('punkte');p.innerHTML='';if(n>1)for(var k=0;k<n;k++){var i=document.createElement('i');if(k===idx)i.className='an';p.appendChild(i)}
     $('vor').hidden=$('zurueck').hidden=n<2}
-  function baueScan(){var d=daten();idx=0;$('scanFoto').closest('.screen').setAttribute('data-anlass',anlassVon(aktuell));chipsZeigen();$('scanTitel').textContent=d.titel;$('unterzeile').textContent=d.text;bildzeigen();
+  function baueScan(){var d=daten();idx=0;$('scanUeber').textContent=THEMA[anlassVon(aktuell)].ueber;anzeigen();$('scanTitel').textContent=d.titel;$('unterzeile').textContent=d.text;bildzeigen();
     var a=$('scanAudio');a.pause();if(d.audio){a.src=d.audio.url}else{a.removeAttribute('src')}
     var nurTon=d.audio&&!d.fotos.length;$('tipp').hidden=!nurTon;$('hoeren').hidden=!d.audio||nurTon;tonAnzeige();
     var b=$('zeigeLink');if(d.link){b.hidden=false;$('linkTitel').textContent=d.linkTitel;$('linkSub').textContent=host(d.link);$('linkHost').textContent=host(d.link);$('linkGo').href=d.link}else{b.hidden=true}
@@ -574,7 +622,9 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   $('buehne').addEventListener('pointerup',function(e){if(x0===null)return;var d=e.clientX-x0;x0=null;if(Math.abs(d)>40){idx+=d<0?1:-1;bildzeigen()}});
   $('zeigeLink').addEventListener('click',function(){$('scanFoto').hidden=true;$('zwischen').hidden=false});
   $('zurSeite').addEventListener('click',function(){$('zwischen').hidden=true;$('scanFoto').hidden=false});
-  $('reset').addEventListener('click',function(){verschenkt={};st.anlass='weihnachten';st.hg='tanne';MAG[1].anlass='urlaub';MAG[2].anlass='familie';tonSetzen(null);st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('mlt').value='';$('aufnTitel').textContent='Jetzt aufnehmen';zeichneFotos();baueListe();geh(1)});
+  $('reset').addEventListener('click',function(){verschenkt={};tonSetzen(null);st.fotos=[];st.link='';$('mt').value='';$('mu').value='';$('ml').value='';$('mlt').value='';$('aufnTitel').textContent='Jetzt aufnehmen';zeichneFotos();themaSetzen('weihnachten');baueListe();geh(1)});
+  Object.keys(THEMA).forEach(function(k){[THEMA[k].held].concat(THEMA[k].m1.fotos).forEach(function(u){new Image().src=u})}); // vorladen, damit das Umschalten sofort wirkt
+  themaSetzen('weihnachten');
   var hh=location.hash.match(/^#s([0-4])$/);if(hh){document.documentElement.classList.add('nur-handy');geh(hh[1]);if(hh[1]==='3'){aktuell=1;baueScan()}}else{geh(0)}
 })();
 </script>
