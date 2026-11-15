@@ -263,7 +263,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
   <header class="kopf">
     <span class="vorab">Vorschlag für Sina · 13.11.2026</span>
     <h1>NFC-Magnete mit eigenen Fotos, Videos und Links im Portal</h1>
-    <p class="leise">Ein Magnet, den der Kunde selbst befüllt: Foto drauf, dazu Fotos, Videos, Audio oder ein Link im Hintergrund. Wer das Handy ans Magnet hält, sieht eine schöne Seite und kann alles direkt öffnen. Der Kunde steuert das im Portal, so wie beim Wichteltelefon seine Ansagen.</p>
+    <p class="leise">Ein Magnet, den der Kunde selbst befüllt: Foto drauf, dazu Fotos, Videos, Audio oder ein Link im Hintergrund. Wer das Handy an den Magneten hält, sieht eine schöne Seite und kann alles direkt öffnen. Der Kunde steuert das im Portal, so wie beim Wichteltelefon seine Ansagen.</p>
   </header>
 
   <section aria-label="Ausgangslage">
@@ -284,7 +284,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
         <button type="button" data-s="0" aria-pressed="false"><b>0 · Willkommen</b><span>Erster Start nach der Anmeldung</span></button>
         <button type="button" data-s="1" aria-pressed="false"><b>1 · Meine Magnete</b><span>Was der Kunde im Portal sieht</span></button>
         <button type="button" data-s="2" aria-pressed="false"><b>2 · Magnet befüllen</b><span>Titel, Fotos, Video, Audio oder Link</span></button>
-        <button type="button" data-s="3" aria-pressed="false"><b>3 · Beim Scannen</b><span>Was die Familie sieht, wenn sie das Handy ans Magnet hält</span></button>
+        <button type="button" data-s="3" aria-pressed="false"><b>3 · Beim Scannen</b><span>Was die Familie sieht, wenn sie das Handy an den Magneten hält</span></button>
         <button type="button" data-s="4" aria-pressed="false"><b>4 · Magnet verschenken</b><span>Mit E-Mail, Name und persönlicher Nachricht</span></button>
         <p class="chipkopf">Thema der Seite beim Scannen</p><div class="chips" id="chips1" role="group" aria-label="Aussehen wählen"><button type="button" data-anlass="familie" aria-pressed="false"><i style="background:#9e5444"></i>Familie</button><button type="button" data-anlass="weihnachten" aria-pressed="true"><i style="background:#2f4a3c"></i>Weihnachten</button><button type="button" data-anlass="hochzeit" aria-pressed="false"><i style="background:#b8975a"></i>Hochzeit</button><button type="button" data-anlass="urlaub" aria-pressed="false"><i style="background:#1c7587"></i>Urlaub</button><button type="button" data-anlass="freunde" aria-pressed="false"><i style="background:#c9514b"></i>Freunde</button></div>
         <p class="kleine" style="padding:4px 4px 0">Das Foto auf dem Magneten selbst klebt der Kunde zu Hause auf, das Portal kümmert sich um das, was dahinter liegt.</p>
@@ -328,7 +328,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
             </div></div>
             <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
               <button class="hbtn haupt" type="button" data-gehe="2">Magnet befüllen</button>
-              <button class="hbtn neben" type="button" data-gehe="4">Ein Magnet verschenken</button>
+              <button class="hbtn neben" type="button" data-gehe="4">Einen Magneten verschenken</button>
             </div>
           </div>
 
@@ -415,7 +415,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
               <label class="f" for="gText">Persönliche Nachricht<textarea class="t" id="gText" rows="3" maxlength="500" placeholder="Ein paar liebe Zeilen für die Mail"></textarea></label>
               <div class="zaehlerzeile"><span>Steht in der Mail an den Beschenkten.</span><span id="gZahl">0 / 500</span></div>
               <p class="fehl" id="gFehler" hidden></p>
-              <div style="margin-top:auto"><button class="hbtn haupt" type="button" id="gWeiter">Weiter</button></div>
+              <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px"><p class="klein" style="background:var(--c-weich);color:var(--c-text);border-radius:12px;padding:10px 12px;font-weight:700;text-align:center">Nur zum Ausprobieren: Hier wird keine Mail verschickt.</p><button class="hbtn haupt" type="button" id="gWeiter">Weiter</button></div>
             </div>
             <div id="gSicher" hidden style="display:flex;flex-direction:column;gap:16px;flex:1">
               <div class="kopfzeile"><button class="zurueck" type="button" id="gZurueck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg> Zurück</button></div>
@@ -444,7 +444,7 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
       <div class="karte"><span class="vorab">Stufe 1 · ca. 1–2 Tage Bauzeit</span><h3>Foto, Text, Audio, Link</h3>
         <ul><li>Neues Produkt „NFC Magnete“: je Set drei Magnete, je Magnet eine eigene Seite.</li><li>Befüllen im Portal und in den Apps: mehrere Fotos, Text, Audio, Link.</li><li>Schöne Seite beim Scannen mit Foto-Wechsel, Link nur über Zwischenseite.</li><li>Verschenken, Umbenennen, Chip einrichten wie beim Telefon.</li><li>Admin: Inhalte ansehen, einzelne sperren, Meldungen sehen.</li></ul></div>
       <div class="karte"><span class="vorab">Stufe 2 · danach, ca. 1 Tag</span><h3>Video und mehr</h3>
-        <ul><li>Video-Upload mit automatischer Umrechnung auf dem Server (ffmpeg ist installiert).</li><li>Album mit mehreren Elementen hintereinander.</li><li>Ablaufdatum oder Passwort für private Magnete.</li><li>Zähler „so oft wurde dieses Magnet angesehen“.</li></ul></div>
+        <ul><li>Video-Upload mit automatischer Umrechnung auf dem Server (ffmpeg ist installiert).</li><li>Album mit mehreren Elementen hintereinander.</li><li>Ablaufdatum oder Passwort für private Magnete.</li><li>Zähler „so oft wurde dieser Magnet angesehen“.</li></ul></div>
     </div>
   </section>
 
@@ -460,11 +460,11 @@ th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leis
 
   <section class="zwei" aria-label="Chip und Recht">
     <div class="karte"><h3>Wer schreibt die Chips?</h3>
-      <p><b>Mein Vorschlag:</b> wie beim Wichteltelefon. Du legst jedes Magnet beim Packen auf den Scanner („Shop-Ware“), der Kunde meldet sich an und tippt auf „Verbinden“.</p>
+      <p><b>Mein Vorschlag:</b> wie beim Wichteltelefon. Du legst jeden Magneten beim Packen auf den Scanner („Shop-Ware“), der Kunde meldet sich an und tippt auf „Verbinden“.</p>
       <p class="leise">Das heißt drei Chips mehr pro Set beim Packen. Die Alternative: Der Kunde richtet den Chip selbst ein. Das geht, braucht auf dem iPhone aber eine zusätzliche App und ist deutlich umständlicher.</p>
       <p class="leise">Für die 16 schon verkauften Sets: die Kunden richten ihre Magnete selbst ein, oder du schickst ihnen neue, beschriebene Chips.</p></div>
     <div class="karte"><h3>Datenschutz und Recht</h3>
-      <p>Bei Wichtelansagen sind es kurze Texte. Hier laden Kunden Fotos und Videos hoch, auch von Kindern, die jeder sieht, der das Magnet scannt.</p>
+      <p>Bei Wichtelansagen sind es kurze Texte. Hier laden Kunden Fotos und Videos hoch, auch von Kindern, die jeder sieht, der den Magneten scannt.</p>
       <ul><li>Neuer Abschnitt in Datenschutzerklärung und AGB: Inhalte, Rechte am Foto, Löschung.</li><li>„Inhalt melden“ auf jeder Seite, dazu eine Sperrfunktion im Admin.</li><li>Links nur mit https und nur über die Zwischenseite.</li><li>Die Texte sollte der Händlerbund prüfen, bevor das live geht.</li></ul></div>
   </section>
 
